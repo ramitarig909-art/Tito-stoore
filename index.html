@@ -399,20 +399,6 @@ html[lang="ar"] .cat-label strong { font-weight: 700; }
 .dot { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(22, 21, 23, .2); }
 .sizes-mini { font-size: var(--t-xs); color: var(--muted); letter-spacing: .04em; }
 
-/* ---------- featured band ---------- */
-.featured { background: var(--char); color: var(--on-dark); overflow: hidden; }
-.featured-in { display: grid; gap: 36px; padding-block: 64px; }
-.featured h2 {
-  font-family: var(--f-display); font-weight: 800; text-transform: uppercase; line-height: .9;
-  font-size: clamp(2.6rem, 1.4rem + 5vw, 5.4rem); font-variation-settings: "wdth" 62;
-}
-html[lang="ar"] .featured h2 { line-height: 1.2; font-weight: 700; }
-.featured p { color: var(--on-dark-muted); max-width: 46ch; margin-top: 16px; }
-.featured .label { color: var(--rose); margin-bottom: 14px; display: block; }
-@media (min-width: 960px) {
-  .featured-in { grid-template-columns: 1fr 1.25fr; align-items: center; padding-block: 110px; gap: 64px; }
-}
-
 /* ---------- brand statement ---------- */
 .statement { display: grid; gap: 36px; }
 .statement h2 {
@@ -731,40 +717,6 @@ html[lang="ar"] .buy h1 { line-height: 1.3; font-weight: 700; }
 .back-ico { transform: scaleX(-1); }
 [dir="rtl"] .back-ico { transform: none; }
 
-/* ---------- featured explorer ---------- */
-.featured-in { align-items: center; }
-.feat-pick { margin-top: 28px; display: grid; gap: 12px; max-width: 380px; }
-.feat-pick .field-head .label { color: var(--on-dark-muted); }
-.feat-pick .swatch { border-color: rgba(241, 239, 234, .25); }
-.feat-pick .swatch[aria-checked="true"] { border-color: var(--on-dark); }
-.feat-buy { margin-top: 28px; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-.feat-buy .price { font-size: 1.3rem; }
-.featured .turn { max-width: 500px; width: 100%; justify-self: center; }
-
-/* ---------- lookbook ---------- */
-.lookbook { background: var(--ink); color: var(--on-dark); padding-block: 64px 24px; overflow: hidden; }
-.lb-head { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: end; margin-bottom: 28px; }
-.lb-head p { color: var(--on-dark-muted); max-width: 46ch; margin-top: 12px; }
-.lb-eyebrow { color: var(--rose); }
-.lb-title {
-  font-family: "Archivo", "Arial Narrow", Arial, sans-serif; font-weight: 800; text-transform: uppercase; line-height: .9;
-  font-size: clamp(2.6rem, 1.4rem + 5vw, 5.6rem); font-variation-settings: "wdth" 62; margin-top: 10px;
-}
-.lb-ctrls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
-.lb-row {
-  display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none;
-  padding-inline: max(var(--gutter), calc((100vw - 1440px) / 2 + var(--gutter))); padding-block: 12px 44px; outline: none;
-}
-.lb-row::-webkit-scrollbar { display: none; }
-.lb-item {
-  position: relative; flex: 0 0 clamp(210px, 64vw, 340px); aspect-ratio: 4 / 5; scroll-snap-align: center;
-  border-radius: var(--radius); overflow: hidden; background: var(--char-2); transform-origin: center; will-change: transform;
-}
-.lb-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
-.lb-item:hover img { transform: scale(1.04); }
-.lb-cap { position: absolute; bottom: 12px; inset-inline-start: 12px; background: rgba(22, 21, 23, .7); padding: 6px 10px; border-radius: 2px; }
-.lb-row:focus-visible { outline: 2px solid var(--rose); outline-offset: -4px; }
-
 .ig-over { position: absolute; inset: 0; display: grid; place-items: center; color: #fff; opacity: 0; transition: opacity .3s; background: rgba(22, 21, 23, .25); }
 .ig-over svg { width: 28px; height: 28px; }
 .ig-grid a:hover .ig-over { opacity: 1; }
@@ -951,7 +903,7 @@ window.TITO_CONFIG = {
 
   // While true, the site shows a small note that prices and stock are samples.
   // Set to false once products.js holds your real catalog.
-  demoCatalog: true,
+  demoCatalog: false,
 
   // Payment note shown on the Help page. PLACEHOLDER: replace with the store's real terms.
   policies: {
@@ -1137,19 +1089,6 @@ window.TITO_CATEGORIES = [
   { key: "sweatpants",  en: "Sweatpants",  ar: "سويت بانتس",   image: pic("pants-burgundy") }
 ];
 
-// Lookbook strip on the homepage (store photos).
-window.TITO_LOOKBOOK = [
-  { src: pic("graphic-black-front"),  product: "better-days-graphic-hoodie", color: "black" },
-  { src: pic("graphic-black-back"),   product: "better-days-graphic-hoodie", color: "black" },
-  { src: pic("graphic-detail-hood"),  product: "better-days-graphic-hoodie", color: "black", caption: { en: "Large hood", ar: "كابيشون كبير" } },
-  { src: pic("graphic-grey-back"),    product: "better-days-graphic-hoodie", color: "grey" },
-  { src: pic("graphic-detail-fabric"), product: "better-days-graphic-hoodie", color: "black", caption: { en: "Heavy soft fleece", ar: "فليس تقيل وفايف" } },
-  { src: pic("graphic-cream-front"),  product: "better-days-graphic-hoodie", color: "offwhite" },
-  { src: pic("graphic-detail-sleeve"), product: "better-days-graphic-hoodie", color: "black", caption: { en: "Dropped shoulder", ar: "كتف ساقط" } },
-  { src: pic("graphic-olive-back"),   product: "better-days-graphic-hoodie", color: "olive" },
-  { src: pic("graphic-detail-pocket"), product: "better-days-graphic-hoodie", color: "black", caption: { en: "Large front pocket", ar: "جيب أمامي كبير" } }
-];
-
 </script>
   <script>
 /* ==========================================================================
@@ -1187,10 +1126,6 @@ window.TITO_I18N = {
     cat_count_1: "1 style",
     new_title: "New arrivals",
     view_all: "View all",
-    featured_eyebrow: "Signature · 6 colours",
-    featured_title: "The Oversized Hoodie",
-    featured_text: "The piece the store is built around. Drag the hoodie to turn it around, then pick your colour.",
-    featured_cta: "Shop this hoodie",
     brand_title: "Made to be lived in.",
     brand_text: "Tito Store is about clothes you reach for without thinking. Pieces that feel good, look put-together and leave the rest to you.",
     brand_1_t: "Comfort first",
@@ -1335,11 +1270,6 @@ window.TITO_I18N = {
     turn_btn: "Turn around",
     view_3d: "3D view",
     mq: ["Oversized hoodies", "Polo sweatshirts", "Wide-leg sweatpants", "Better Days Ahead", "Ask us on WhatsApp"],
-    lb_eyebrow: "Lookbook",
-    lb_title: "Better Days Ahead",
-    lb_text: "Heavy oversized hoodie with a crown logo on the chest and a full mountain print on the back. Five colours.",
-    lb_cta: "Shop the graphic hoodie",
-    lb_scroll: "Scroll the lookbook",
     prev: "Previous",
     next: "Next"
   },
@@ -1373,10 +1303,6 @@ window.TITO_I18N = {
     cat_count_1: "موديل واحد",
     new_title: "وصل حديثاً",
     view_all: "عرض الكل",
-    featured_eyebrow: "المميز · 6 ألوان",
-    featured_title: "الهودي الأوفرسايز",
-    featured_text: "القطعة اللي المحل قايم عليها. اسحب الهودي عشان تلفّه وتشوف ضهره، وبعدين اختار لونك.",
-    featured_cta: "تسوّق الهودي ده",
     brand_title: "معمول عشان يتعاش فيه.",
     brand_text: "تيتو ستور يعني هدوم تمد إيدك عليها من غير تفكير. قطع مريحة، شكلها مترتب، والباقي عليك.",
     brand_1_t: "الراحة الأول",
@@ -1520,11 +1446,6 @@ window.TITO_I18N = {
     turn_btn: "لفّ القطعة",
     view_3d: "عرض 3D",
     mq: ["هوديز أوفرسايز", "سويت شيرت بولو", "سويت بانتس واسع", "Better Days Ahead", "اسألنا على واتساب"],
-    lb_eyebrow: "لوك بوك",
-    lb_title: "Better Days Ahead",
-    lb_text: "هودي أوفرسايز تقيل بلوجو تاج على الصدر وطبعة جبال كاملة على الضهر. خمس ألوان.",
-    lb_cta: "تسوّق الهودي المطبوع",
-    lb_scroll: "قلّب في اللوك بوك",
     prev: "السابق",
     next: "التالي"
   }
@@ -2421,109 +2342,6 @@ window.TITO_I18N = {
     </article>`;
   }
 
-  /* ------------------------------------------------------- swatch + sizes */
-  function Swatches(props) {
-    var lang = useApp().lang;
-    return html`<div className="swatches" role="radiogroup" aria-label=${props.label}>
-      ${props.colors.map(function (k) {
-        return html`<button key=${k} type="button" className="swatch" role="radio" aria-checked=${props.value === k}
-          aria-label=${colorName(k, lang)} title=${colorName(k, lang)} onClick=${function () { props.onChange(k); }}>
-          <span style=${{ background: COLORS[k].hex }}></span></button>`;
-      })}
-    </div>`;
-  }
-  function SizeRow(props) {
-    var t = useApp().t, p = props.p;
-    return html`<div className="sizes" role="radiogroup" aria-label=${props.label}>
-      ${p.sizes.map(function (sz) {
-        var out = isSoldOut(p, props.color, sz);
-        return html`<button key=${sz} type="button" className="opt" role="radio" aria-checked=${props.value === sz}
-          aria-disabled=${out ? "true" : undefined} title=${out ? t("size_out", { size: sz }) : sz}
-          onClick=${function () { if (!out) props.onChange(sz); }}>${sz}</button>`;
-      })}
-    </div>`;
-  }
-
-  /* ------------------------------------------------------- hoodie explorer */
-  function Explorer() {
-    var app = useApp(), t = app.t, lang = app.lang;
-    var p = byId("essential-oversized-hoodie");
-    var c = useState(p ? p.colors[0] : null);
-    if (!p) return null;
-    var ph = photoSet(p, c[0]);
-    return html`<section className="featured on-dark" aria-labelledby="feat-title">
-      <div className="wrap featured-in">
-        <div className="feat-copy">
-          <span className="label">${t("featured_eyebrow")}</span>
-          <h2 id="feat-title">${t("featured_title")}</h2>
-          <p>${t("featured_text")}</p>
-          <div className="feat-pick">
-            <div className="field-head"><span className="label">${t("color")}</span><strong>${colorName(c[0], lang)}</strong></div>
-            <${Swatches} colors=${p.colors} value=${c[0]} onChange=${c[1]} label=${t("color")} />
-          </div>
-          <div className="feat-buy">
-            <span className="price">${money(p.price, lang)}</span>
-            <a className="btn light" href=${hashFor("product/" + p.id, { color: c[0] })}>${t("featured_cta")} <${Icon} name="arrow" className="flip" /></a>
-          </div>
-        </div>
-        <${Turn} dark=${true} front=${ph.main} back=${ph.back || ph.main} alt=${p.name[lang] + " — " + colorName(c[0], lang)} lazy=${true} />
-      </div>
-    </section>`;
-  }
-
-  /* -------------------------------------------------------------- lookbook */
-  function Lookbook() {
-    var app = useApp(), t = app.t, lang = app.lang;
-    var row = useRef(null);
-    var items = window.TITO_LOOKBOOK || [];
-    useEffect(function () {
-      var el = row.current; if (!el || REDUCED) return;
-      var raf = 0;
-      function update() {
-        var r = el.getBoundingClientRect(), cx = r.left + r.width / 2;
-        Array.prototype.forEach.call(el.children, function (c) {
-          var b = c.getBoundingClientRect(), d = ((b.left + b.width / 2) - cx) / (r.width / 2);
-          d = Math.max(-1.2, Math.min(1.2, d));
-          c.style.transform = "perspective(900px) rotateY(" + (-d * 24).toFixed(2) + "deg) scale(" + (1 - Math.abs(d) * 0.08).toFixed(3) + ")";
-        });
-      }
-      function onScroll() { cancelAnimationFrame(raf); raf = requestAnimationFrame(update); }
-      update();
-      el.addEventListener("scroll", onScroll, { passive: true });
-      window.addEventListener("resize", onScroll);
-      return function () { el.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); cancelAnimationFrame(raf); };
-    }, []);
-    function nudge(dir) {
-      var el = row.current; if (!el) return;
-      var amt = el.clientWidth * 0.7 * dir * (lang === "ar" ? -1 : 1);
-      el.scrollBy({ left: amt, behavior: REDUCED ? "auto" : "smooth" });
-    }
-    if (!items.length) return null;
-    return html`<section className="lookbook on-dark" aria-labelledby="lb-title">
-      <div className="wrap lb-head">
-        <div>
-          <span className="label lb-eyebrow">${t("lb_eyebrow")}</span>
-          <h2 className="lb-title" id="lb-title" lang="en">${t("lb_title")}</h2>
-          <p>${t("lb_text")}</p>
-        </div>
-        <div className="lb-ctrls">
-          <button type="button" className="round-btn" aria-label=${t("prev")} onClick=${function () { nudge(-1); }}><${Icon} name="arrow" className="flip back-ico" /></button>
-          <button type="button" className="round-btn" aria-label=${t("next")} onClick=${function () { nudge(1); }}><${Icon} name="arrow" className="flip" /></button>
-          <a className="btn light" href=${hashFor("product/better-days-graphic-hoodie", { color: "black" })}>${t("lb_cta")}</a>
-        </div>
-      </div>
-      <div className="lb-row" ref=${row} tabIndex="0" aria-label=${t("lb_scroll")}>
-        ${items.map(function (it, i) {
-          var p = byId(it.product);
-          return html`<a key=${i} className="lb-item" href=${p ? hashFor("product/" + p.id, { color: it.color }) : "#/shop"}>
-            <img src=${asset(it.src)} alt=${(p ? p.name[lang] : "") + (it.caption ? " — " + it.caption[lang] : "")} loading="lazy" draggable="false" />
-            ${it.caption ? html`<span className="lb-cap label">${it.caption[lang]}</span>` : null}
-          </a>`;
-        })}
-      </div>
-    </section>`;
-  }
-
   /* ------------------------------------------------------------------ pages */
   function Home() {
     var app = useApp(), t = app.t, lang = app.lang;
@@ -2573,8 +2391,6 @@ window.TITO_I18N = {
         <${ProductRail} id="colors" title=${t("rail_colors")} sub=${t("rail_colors_sub", { n: allVariants().length })} href="#/shop" items=${allVariants()} />
       </div>
 
-      <${Explorer} />
-      <${Lookbook} />
 
       <section className="section wrap" aria-labelledby="brand-title">
         <div className="statement">
