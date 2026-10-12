@@ -402,24 +402,26 @@ html[lang="ar"] .cat-label strong { font-weight: 700; }
 .dot { width: 12px; height: 12px; border-radius: 50%; border: 1px solid rgba(22, 21, 23, .2); }
 .sizes-mini { font-size: var(--t-xs); color: var(--muted); letter-spacing: .04em; }
 
-/* ---------- brand statement ---------- */
-.statement { display: grid; gap: 36px; }
+/* ---------- brand statement: headline on top, four points below ---------- */
+.statement { display: grid; gap: 40px; }
+.statement-head { display: grid; gap: 16px; max-width: 900px; }
 .statement h2 {
-  font-family: var(--f-display); font-weight: 800; text-transform: uppercase; line-height: .95;
-  font-size: clamp(2.2rem, 1.2rem + 4vw, 4.4rem); font-variation-settings: "wdth" 66;
+  font-family: var(--f-display); font-weight: 800; text-transform: uppercase; line-height: .92;
+  font-size: clamp(2.6rem, 1.2rem + 6vw, 6.4rem); font-variation-settings: "wdth" 64;
 }
-html[lang="ar"] .statement h2 { line-height: 1.25; font-weight: 700; }
-.statement > div > p { margin-top: 16px; color: var(--muted); max-width: 52ch; font-size: 1.05rem; }
+html[lang="ar"] .statement h2 { line-height: 1.2; font-weight: 700; font-size: clamp(2.2rem, 1.2rem + 4.5vw, 4.8rem); }
+.statement-head p { color: var(--muted); max-width: 52ch; font-size: 1.1rem; line-height: 1.6; }
 .pillars { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--ink); }
-.pillar { padding: 18px 14px 20px 0; border-bottom: 1px solid var(--line); display: grid; gap: 6px; align-content: start; }
-[dir="rtl"] .pillar { padding: 18px 0 20px 14px; }
-.pillar:nth-child(odd) { border-inline-end: 1px solid var(--line); }
-.pillar:nth-child(even) { padding-inline-start: 14px; }
+.pillar { padding: 20px 16px 22px; display: grid; gap: 8px; align-content: start; border-bottom: 1px solid var(--line); }
+.pillar:nth-child(odd) { border-inline-end: 1px solid var(--line); padding-inline-start: 0; }
 .pillar .mark { width: 10px; height: 10px; border-radius: 50%; }
-.pillar h3 { font-size: 1rem; font-weight: 600; }
+.pillar h3 { font-size: 1.02rem; font-weight: 600; }
 .pillar p { font-size: var(--t-sm); color: var(--muted); }
-@media (min-width: 960px) {
-  .statement { grid-template-columns: 1fr 1fr; gap: 64px; align-items: end; }
+@media (min-width: 760px) {
+  .pillars { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .pillar, .pillar:nth-child(odd) { border-bottom: 0; padding: 24px 22px 8px; border-inline-end: 1px solid var(--line); }
+  .pillar:first-child { padding-inline-start: 0; }
+  .pillar:last-child { border-inline-end: 0; }
 }
 
 /* ---------- instagram ---------- */
@@ -2401,7 +2403,7 @@ window.TITO_I18N = {
 
       <section className="section wrap" aria-labelledby="brand-title">
         <div className="statement">
-          <div>
+          <div className="statement-head">
             <h2 id="brand-title">${t("brand_title")}</h2>
             <p>${t("brand_text")}</p>
           </div>
