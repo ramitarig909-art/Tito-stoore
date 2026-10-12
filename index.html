@@ -373,7 +373,10 @@ html[lang="ar"] .cat-label strong { font-weight: 700; }
   .card:hover .card-media img.main { opacity: 0; }
   .card:hover .card-media img.alt { opacity: 1; transform: scale(1.03); }
 }
-.card-flag { position: absolute; top: 10px; inset-inline-start: 10px; background: var(--paper); color: var(--burg); padding: 4px 8px; font-size: .65rem; z-index: 1; }
+.card-flags { position: absolute; top: 10px; inset-inline-start: 10px; z-index: 2; display: flex; gap: 6px; flex-wrap: wrap; }
+.card-flag { background: var(--paper); color: var(--burg); padding: 4px 8px; font-size: .65rem; line-height: 1.4; }
+.card-flag.new { background: var(--burg); color: #fff; }
+.pdp-flags { display: flex; gap: 6px; }
 .quick {
   position: absolute; inset-inline: 8px; bottom: 8px; z-index: 2; min-height: 44px;
   background: rgba(247, 246, 243, .94); border: 0; border-radius: var(--radius);
@@ -949,7 +952,8 @@ window.TITO_CONFIG = {
      id           unique, used in links (letters, numbers, dashes)
      name         { en, ar }
      category     "hoodies" | "sweatshirts" | "sweatpants"
-     tags         optional, e.g. "graphic", "bestseller"
+     tags         "new" shows a NEW badge and puts it in New Arrivals;
+                  "graphic" shows a GRAPHIC badge; "bestseller" puts it in Best Sellers
      price        number in EGP
      colors       keys from TITO_COLORS, first one is the default
      sizes        sizes offered
@@ -982,7 +986,7 @@ window.TITO_PRODUCTS = [
     id: "essential-oversized-hoodie",
     name: { en: "Essential Oversized Hoodie", ar: "هودي أوفرسايز إسنشيال" },
     category: "hoodies",
-    tags: ["bestseller"],
+    tags: ["new", "bestseller"],
     price: 1350,
     colors: ["black", "offwhite", "burgundy", "olive", "charcoal", "pink"],
     sizes: ["S", "M", "L", "XL", "XXL"],
@@ -1008,7 +1012,7 @@ window.TITO_PRODUCTS = [
     id: "better-days-graphic-hoodie",
     name: { en: "Better Days Ahead Hoodie", ar: "هودي Better Days Ahead" },
     category: "hoodies",
-    tags: ["graphic", "bestseller"],
+    tags: ["new", "graphic", "bestseller"],
     price: 1550,
     colors: ["black", "grey", "offwhite", "olive", "brown"],
     sizes: ["S", "M", "L", "XL", "XXL"],
@@ -1034,7 +1038,7 @@ window.TITO_PRODUCTS = [
     id: "polo-collar-sweatshirt",
     name: { en: "Polo Collar Sweatshirt", ar: "سويت شيرت بياقة بولو" },
     category: "sweatshirts",
-    tags: [],
+    tags: ["new"],
     price: 1250,
     colors: ["black", "olive", "burgundy", "heather"],
     sizes: ["S", "M", "L", "XL", "XXL"],
@@ -1058,7 +1062,7 @@ window.TITO_PRODUCTS = [
     id: "wide-leg-sweatpants",
     name: { en: "Wide-Leg Sweatpants", ar: "سويت بانتس واسع" },
     category: "sweatpants",
-    tags: ["bestseller"],
+    tags: ["new", "bestseller"],
     price: 1050,
     colors: ["black", "olive", "burgundy", "charcoal", "heather"],
     sizes: ["S", "M", "L", "XL", "XXL"],
@@ -1259,8 +1263,6 @@ window.TITO_I18N = {
     ask_short: "Ask",
     add_short: "Add",
     rail_new: "New arrivals",
-    rail_colors: "Every colour",
-    rail_colors_sub: "{n} pieces to swipe through",
     rail_more: "More to look at",
     prev_product: "Previous product",
     next_product: "Next product",
@@ -1435,8 +1437,6 @@ window.TITO_I18N = {
     ask_short: "اسأل",
     add_short: "ضيف",
     rail_new: "وصل حديثاً",
-    rail_colors: "كل الألوان",
-    rail_colors_sub: "{n} قطعة تقلّب فيهم",
     rail_more: "حاجات تانية تشوفها",
     prev_product: "المنتج السابق",
     next_product: "المنتج التالي",
@@ -1502,6 +1502,13 @@ window.TITO_I18N = {
   function altImg(p, color) {
     var s = photoSet(p, color);
     return asset(s.back || (s.more && s.more[0]) || (p.gallery && p.gallery[0]) || s.main) || PLACEHOLDER;
+  }
+  function isNew(p) { return p.tags.indexOf("new") > -1; }
+  // Products tagged "new" (newest first); if none are tagged, the newest four.
+  function newArrivals() {
+    var byDate = PRODUCTS.slice().sort(function (a, b) { return b.addedAt.localeCompare(a.addedAt); });
+    var tagged = byDate.filter(isNew);
+    return tagged.length ? tagged : byDate.slice(0, 4);
   }
   function normalize(s) {
     return String(s || "").toLowerCase()
@@ -2325,7 +2332,10 @@ window.TITO_I18N = {
           <img className="alt" src=${altImg(p, color)} alt="" loading="lazy" decoding="async" />
         </a>
         <span className="sheen" aria-hidden="true"></span>
-        ${p.tags.indexOf("graphic") > -1 ? html`<span className="card-flag label">Graphic</span>` : null}
+        ${isNew(p) || p.tags.indexOf("graphic") > -1 ? html`<span className="card-flags">
+          ${isNew(p) ? html`<span className="card-flag new label">${t("card_new")}</span>` : null}
+          ${p.tags.indexOf("graphic") > -1 ? html`<span className="card-flag label">Graphic</span>` : null}
+        </span>` : null}
         <button type="button" className="quick" aria-label=${t("card_quick") + ": " + p.name[lang]}
           onClick=${function () { app.open("quick", { id: p.id, color: color }); }}>
           <${Icon} name="plus" /><span>${t("card_quick")}</span>
@@ -2345,7 +2355,7 @@ window.TITO_I18N = {
   /* ------------------------------------------------------------------ pages */
   function Home() {
     var app = useApp(), t = app.t, lang = app.lang;
-    var newest = PRODUCTS.slice().sort(function (a, b) { return b.addedAt.localeCompare(a.addedAt); }).slice(0, 4);
+    var newest = newArrivals();
     var ig = (CFG.instagramImages || []).slice(0, 6);
     function catCount(c) { return PRODUCTS.filter(function (p) { return p.category === c.key; }).length; }
     return html`<div>
@@ -2386,9 +2396,6 @@ window.TITO_I18N = {
 
       <div className="section wrap" style=${{ paddingTop: 0 }}>
         <${ProductRail} id="new" title=${t("rail_new")} href="#/shop?view=new" items=${newest.map(function (p) { return { p: p }; })} />
-      </div>
-      <div className="section wrap rail-tint">
-        <${ProductRail} id="colors" title=${t("rail_colors")} sub=${t("rail_colors_sub", { n: allVariants().length })} href="#/shop" items=${allVariants()} />
       </div>
 
 
@@ -2435,7 +2442,7 @@ window.TITO_I18N = {
     if (q.cat) list = list.filter(function (p) { return p.category === q.cat; });
     if (q.tag) list = list.filter(function (p) { return p.tags.indexOf(q.tag) > -1; });
     if (q.q) list = list.filter(function (p) { return matches(p, q.q); });
-    if (q.view === "new") list.sort(function (a, b) { return b.addedAt.localeCompare(a.addedAt); });
+    if (q.view === "new") { var na = newArrivals(); list = list.filter(function (p) { return na.indexOf(p) > -1; }).sort(function (a, b) { return b.addedAt.localeCompare(a.addedAt); }); }
     return list;
   }
 
@@ -2544,7 +2551,10 @@ window.TITO_I18N = {
         </div>
         <div className="buy">
           <div style=${{ display: "grid", gap: "10px" }}>
-            ${p.tags.indexOf("graphic") > -1 ? html`<span className="label" style=${{ color: "var(--burg)" }}>Graphic</span>` : null}
+            ${isNew(p) || p.tags.indexOf("graphic") > -1 ? html`<span className="pdp-flags">
+              ${isNew(p) ? html`<span className="card-flag new label">${t("card_new")}</span>` : null}
+              ${p.tags.indexOf("graphic") > -1 ? html`<span className="card-flag label">Graphic</span>` : null}
+            </span>` : null}
             <h1>${p.name[lang]}</h1>
             <span className="price" data-price>${money(p.price, lang)}</span>
           </div>
