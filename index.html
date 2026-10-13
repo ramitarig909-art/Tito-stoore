@@ -877,6 +877,41 @@ html[lang="ar"] .buy h1 { line-height: 1.3; font-weight: 700; }
 
 .pdp-desc { color: var(--muted); font-size: .98rem; line-height: 1.65; max-width: 60ch; padding-top: 18px; border-top: 1px solid var(--line); }
 
+/* ---------- shop intro ---------- */
+.shop-intro { margin-top: 10px; color: var(--muted); max-width: 60ch; font-size: .98rem; }
+
+/* ---------- about page ---------- */
+.about-hero { padding-block: 28px 8px; display: grid; gap: 12px; }
+.about-hero .crumbs { margin-bottom: 4px; }
+.about-lead { font-size: clamp(1.08rem, 1rem + .5vw, 1.35rem); line-height: 1.55; max-width: 46ch; margin-top: 6px; }
+.about-story { display: grid; gap: 28px; padding-block: 36px 24px; align-items: center; }
+.about-photo { margin: 0; border-radius: var(--radius); overflow: hidden; background: var(--mist); aspect-ratio: 4 / 5; max-width: 100%; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; }
+.about-copy { display: grid; gap: 14px; min-width: 0; }
+.about-copy p { color: var(--muted); font-size: 1.02rem; line-height: 1.7; max-width: 52ch; }
+@media (min-width: 900px) {
+  .about-story { grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; padding-block: 56px 32px; }
+  .about-photo { aspect-ratio: 5 / 6; }
+}
+.about-steps { background: var(--char); color: var(--on-dark); padding-block: 56px; }
+.about-steps .wrap { display: grid; gap: 28px; justify-items: start; }
+.steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; width: 100%; }
+.steps li { display: grid; grid-template-columns: auto 1fr; column-gap: 16px; row-gap: 4px; padding: 18px 0; border-top: 1px solid rgba(241, 239, 234, .16); }
+.steps .step-n {
+  grid-row: span 2; width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center;
+  border: 1px solid var(--rose); color: var(--rose); font-family: var(--f-display); font-weight: 700;
+}
+.steps h3 { font-size: 1.05rem; font-weight: 600; }
+.steps p { color: var(--on-dark-muted); font-size: .95rem; }
+@media (min-width: 760px) {
+  .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+  .steps li { grid-template-columns: 1fr; padding-top: 22px; }
+  .steps .step-n { grid-row: auto; margin-bottom: 8px; }
+}
+.faq .acc summary { font-weight: 600; font-size: 1rem; }
+.faq .acc { max-width: 820px; }
+.about-cta { padding-block: 24px 80px; display: grid; gap: 20px; justify-items: start; }
+
 </style>
 </head>
 <body>
@@ -1138,6 +1173,64 @@ window.TITO_I18N = {
     switchLabel: "Switch to Arabic",
     skip: "Skip to content",
 
+    nav_about: "About",
+    about_title: "About Tito Store",
+    about_eyebrow: "Online menswear · Egypt",
+    about_lead: "Tito Store is an online menswear store in Egypt. We make a small range of everyday streetwear: oversized hoodies, polo collar sweatshirts and wide-leg sweatpants, in calm colours that go with everything.",
+    about_story_t: "Why we started",
+    about_story_1: "We wanted clothes you reach for without thinking: pieces that feel easy all day and still look put-together. So we kept the range small and focused on a few shapes we believe in.",
+    about_story_2: "Every piece comes in several colours, so you can build a full outfit from the same few staples, and every hoodie pairs with our sweatpants.",
+    about_make_t: "What we make",
+    about_order_t: "How ordering works",
+    about_step1_t: "Pick your piece",
+    about_step1_d: "Browse the shop and choose a colour and a size.",
+    about_step2_t: "Ask on WhatsApp",
+    about_step2_d: "One tap sends us your question with the product link and photo.",
+    about_step3_t: "We confirm and deliver",
+    about_step3_d: "We reply with availability and delivery details, and ship anywhere in Egypt.",
+    about_values_t: "What we care about",
+    about_faq_t: "Common questions",
+    about_cta_t: "Find your next everyday piece.",
+    faq1_q: "Do you deliver across Egypt?",
+    faq1_a: "Yes. We are an online store and deliver to every governorate in Egypt. We confirm the delivery fee for your area on WhatsApp.",
+    faq2_q: "How do I order?",
+    faq2_a: "Open any product and tap “Ask on WhatsApp”. Your message reaches us with the product, colour and size, and we take it from there.",
+    faq3_q: "Which size should I pick?",
+    faq3_a: "Our hoodies are cut oversized. If you are between sizes, send us your height and weight on WhatsApp and we will suggest one.",
+    faq4_q: "Do you have a physical shop?",
+    faq4_a: "Not at the moment. We sell online through this website, Instagram and WhatsApp.",
+
+    intro_shop: "Oversized hoodies, polo collar sweatshirts and wide-leg sweatpants for men. Pick a piece, choose your colour and ask us on WhatsApp.",
+    intro_hoodies: "Oversized hoodies with dropped shoulders and a roomy fit: the plain Essential hoodie in six colours and the Better Days Ahead graphic hoodie.",
+    intro_sweatshirts: "A boxy sweatshirt with a soft polo collar and side slits, in colours that sit clean over sweatpants or trousers.",
+    intro_sweatpants: "Wide, curved-leg sweatpants with an elastic drawcord waist, in colours that match every hoodie in the store.",
+    intro_new: "The newest pieces in the store.",
+    intro_best: "The pieces customers ask about most.",
+
+    seo_home_title: "Tito Store | Oversized Hoodies & Men's Streetwear in Egypt",
+    seo_home_desc: "Shop oversized hoodies, polo sweatshirts and wide-leg sweatpants for men. Everyday streetwear in calm colours, delivered across Egypt. Ask and order on WhatsApp.",
+    seo_shop_title: "Shop Men's Hoodies, Sweatshirts & Sweatpants | Tito Store",
+    seo_shop_desc: "Every Tito Store piece in one place: oversized hoodies, polo collar sweatshirts and wide-leg sweatpants for men, from {from}. Delivered across Egypt.",
+    seo_cat_hoodies_title: "Men's Oversized Hoodies in Egypt | Tito Store",
+    seo_cat_hoodies_desc: "Oversized and graphic hoodies for men in {n} colours, from {from}. Relaxed fits delivered across Egypt. Ask on WhatsApp for sizes.",
+    seo_cat_sweatshirts_title: "Men's Polo Collar Sweatshirts | Tito Store",
+    seo_cat_sweatshirts_desc: "Boxy polo collar sweatshirts for men in {n} colours, from {from}. Easy to wear over sweatpants or trousers. Delivered across Egypt.",
+    seo_cat_sweatpants_title: "Men's Wide-Leg Sweatpants in Egypt | Tito Store",
+    seo_cat_sweatpants_desc: "Wide, curved-leg sweatpants for men in {n} colours, from {from}. Pairs with any hoodie in the store. Delivered across Egypt.",
+    seo_new_title: "New Arrivals – Men's Streetwear | Tito Store",
+    seo_new_desc: "The newest hoodies, sweatshirts and sweatpants at Tito Store, from {from}. Fresh colours and fits, delivered across Egypt.",
+    seo_best_title: "Best Sellers – Men's Hoodies & Sweatpants | Tito Store",
+    seo_best_desc: "The Tito Store pieces customers order most: oversized hoodies, graphic hoodies and wide-leg sweatpants, from {from}. Delivered across Egypt.",
+    seo_product_desc: "{name} in {n} colours: {colors}. Sizes {sizes}, {price}. Delivered across Egypt. Ask on WhatsApp.",
+    seo_single_hoodies: "Men's Hoodie",
+    seo_single_sweatshirts: "Men's Sweatshirt",
+    seo_single_sweatpants: "Men's Sweatpants",
+    seo_about_title: "About Tito Store | Online Men's Streetwear Store in Egypt",
+    seo_about_desc: "Tito Store is an online menswear store in Egypt for oversized hoodies, polo sweatshirts and wide-leg sweatpants. See how we work and how to order on WhatsApp.",
+    seo_help_title: "Help & Contact | Tito Store",
+    seo_help_desc: "Questions about sizes, colours or an order? Contact Tito Store on WhatsApp. Delivery across Egypt, no online payment needed.",
+    seo_404_title: "Page not found | Tito Store",
+    seo_search_title: "Search: {q} | Tito Store",
     nav_shop: "Shop",
     nav_new: "New Arrivals",
     nav_hoodies: "Hoodies",
@@ -1148,7 +1241,7 @@ window.TITO_I18N = {
     close: "Close",
     home: "Home",
 
-    hero_eyebrow: "New season",
+    hero_eyebrow: "Men's streetwear · Egypt",
     hero_title_1: "YOUR STYLE.",
     hero_title_2: "YOUR RULES.",
     hero_sub: "Everyday essentials. Elevated streetwear.",
@@ -1178,6 +1271,7 @@ window.TITO_I18N = {
 
     card_quick: "Quick add",
     card_new: "New",
+    card_graphic: "Graphic",
     card_colors: "{n} colours",
     card_sizes: "Sizes",
 
@@ -1313,6 +1407,64 @@ window.TITO_I18N = {
     switchLabel: "التحويل للإنجليزي",
     skip: "انتقل للمحتوى",
 
+    nav_about: "من نحن",
+    about_title: "عن تيتو ستور",
+    about_eyebrow: "ملابس رجالي أونلاين · مصر",
+    about_lead: "تيتو ستور متجر ملابس رجالي أونلاين في مصر. بنعمل مجموعة صغيرة من الستريت وير اليومي: هوديز أوفرسايز وسويت شيرت بياقة بولو وسويت بانتس واسع، بألوان هادية بتمشي مع كل حاجة.",
+    about_story_t: "ليه بدأنا",
+    about_story_1: "كنا عايزين هدوم تمد إيدك عليها من غير تفكير: قطع مريحة طول اليوم وشكلها مترتب. عشان كده خلّينا المجموعة صغيرة وركّزنا على كام قصّة مقتنعين بيها.",
+    about_story_2: "كل قطعة موجودة بكذا لون، فتقدر تعمل لوك كامل من نفس الأساسيات، وكل هودي بيليق مع السويت بانتس بتاعنا.",
+    about_make_t: "بنعمل إيه",
+    about_order_t: "إزاي تطلب",
+    about_step1_t: "اختار القطعة",
+    about_step1_d: "قلّب في المحل واختار اللون والمقاس.",
+    about_step2_t: "اسأل على واتساب",
+    about_step2_d: "بضغطة واحدة بيوصلنا سؤالك مع لينك المنتج وصورته.",
+    about_step3_t: "بنأكد وبنوصّل",
+    about_step3_d: "بنرد عليك بالتوفر وتفاصيل التوصيل، وبنشحن لأي مكان في مصر.",
+    about_values_t: "إيه اللي يهمنا",
+    about_faq_t: "أسئلة بتتكرر",
+    about_cta_t: "لاقي قطعتك اليومية الجاية.",
+    faq1_q: "بتوصّلوا لكل مصر؟",
+    faq1_a: "أيوه. إحنا متجر أونلاين وبنوصّل لكل محافظات مصر، وبنأكدلك مصاريف التوصيل لمنطقتك على واتساب.",
+    faq2_q: "أطلب إزاي؟",
+    faq2_a: "افتح أي منتج واضغط «اسأل على واتساب». رسالتك هتوصلنا فيها المنتج واللون والمقاس، وإحنا نكمّل معاك.",
+    faq3_q: "أختار مقاس إيه؟",
+    faq3_a: "الهوديز بتاعتنا قصّتها أوفرسايز. لو محتار بين مقاسين، ابعتلنا طولك ووزنك على واتساب ونقولك المناسب.",
+    faq4_q: "عندكم محل؟",
+    faq4_a: "لأ حالياً. بنبيع أونلاين من خلال الموقع وإنستجرام وواتساب.",
+
+    intro_shop: "هوديز أوفرسايز وسويت شيرت بياقة بولو وسويت بانتس واسع للرجالة. اختار القطعة واللون واسألنا على واتساب.",
+    intro_hoodies: "هوديز أوفرسايز بكتف نازل وقصة واسعة: هودي إسنشيال السادة بستة ألوان، وهودي Better Days Ahead المطبوع.",
+    intro_sweatshirts: "سويت شيرت بوكسي بياقة بولو ناعمة وفتحات جانبية، بألوان بتقع نضيف فوق السويت بانتس أو البنطلون.",
+    intro_sweatpants: "سويت بانتس برجل واسعة مقوّسة ووسط أستك برباط، بألوان بتمشي مع كل هودي في المحل.",
+    intro_new: "أحدث القطع في المحل.",
+    intro_best: "القطع اللي العملاء بيسألوا عليها أكتر.",
+
+    seo_home_title: "تيتو ستور | هوديز أوفرسايز وستريت وير رجالي في مصر",
+    seo_home_desc: "تسوّق هوديز أوفرسايز وسويت شيرت بولو وسويت بانتس واسع للرجالة. ستريت وير يومي بألوان هادية وتوصيل لكل مصر. اسأل واطلب على واتساب.",
+    seo_shop_title: "تسوّق هوديز وسويت شيرتات وسويت بانتس رجالي | تيتو ستور",
+    seo_shop_desc: "كل قطع تيتو ستور في مكان واحد: هوديز أوفرسايز وسويت شيرت بياقة بولو وسويت بانتس واسع للرجالة، تبدأ من {from}. توصيل لكل مصر.",
+    seo_cat_hoodies_title: "هوديز أوفرسايز رجالي في مصر | تيتو ستور",
+    seo_cat_hoodies_desc: "هوديز أوفرسايز وهوديز مطبوعة للرجالة بـ{n} ألوان، تبدأ من {from}. قصّات مريحة وتوصيل لكل مصر. اسأل على واتساب عن المقاسات.",
+    seo_cat_sweatshirts_title: "سويت شيرت رجالي بياقة بولو | تيتو ستور",
+    seo_cat_sweatshirts_desc: "سويت شيرت بوكسي بياقة بولو للرجالة بـ{n} ألوان، يبدأ من {from}. سهل يتلبس فوق السويت بانتس أو البنطلون. توصيل لكل مصر.",
+    seo_cat_sweatpants_title: "سويت بانتس واسع رجالي في مصر | تيتو ستور",
+    seo_cat_sweatpants_desc: "سويت بانتس برجل واسعة مقوّسة للرجالة بـ{n} ألوان، يبدأ من {from}. بيتلبس مع أي هودي في المحل. توصيل لكل مصر.",
+    seo_new_title: "وصل حديثاً – ستريت وير رجالي | تيتو ستور",
+    seo_new_desc: "أحدث هوديز وسويت شيرتات وسويت بانتس في تيتو ستور، تبدأ من {from}. ألوان وقصّات جديدة وتوصيل لكل مصر.",
+    seo_best_title: "الأكثر مبيعاً – هوديز وسويت بانتس رجالي | تيتو ستور",
+    seo_best_desc: "القطع اللي العملاء بيطلبوها أكتر في تيتو ستور: هوديز أوفرسايز وهوديز مطبوعة وسويت بانتس واسع، تبدأ من {from}. توصيل لكل مصر.",
+    seo_product_desc: "{name} بـ{n} ألوان: {colors}. المقاسات {sizes}، {price}. توصيل لكل مصر. اسأل على واتساب.",
+    seo_single_hoodies: "هودي رجالي",
+    seo_single_sweatshirts: "سويت شيرت رجالي",
+    seo_single_sweatpants: "سويت بانتس رجالي",
+    seo_about_title: "عن تيتو ستور | متجر ستريت وير رجالي أونلاين في مصر",
+    seo_about_desc: "تيتو ستور متجر ملابس رجالي أونلاين في مصر للهوديز الأوفرسايز والسويت شيرت البولو والسويت بانتس الواسع. اعرف إزاي بنشتغل وإزاي تطلب على واتساب.",
+    seo_help_title: "مساعدة وتواصل | تيتو ستور",
+    seo_help_desc: "عندك سؤال عن المقاسات أو الألوان أو أوردر؟ كلّم تيتو ستور على واتساب. توصيل لكل مصر ومن غير دفع أونلاين.",
+    seo_404_title: "الصفحة مش موجودة | تيتو ستور",
+    seo_search_title: "بحث: {q} | تيتو ستور",
     nav_shop: "تسوّق",
     nav_new: "وصل حديثاً",
     nav_hoodies: "هوديز",
@@ -1323,7 +1475,7 @@ window.TITO_I18N = {
     close: "إغلاق",
     home: "الرئيسية",
 
-    hero_eyebrow: "موسم جديد",
+    hero_eyebrow: "ستريت وير رجالي · مصر",
     hero_title_1: "ستايلك.",
     hero_title_2: "قواعدك.",
     hero_sub: "أساسيات كل يوم. ستريت وير بمستوى أعلى.",
@@ -1353,6 +1505,7 @@ window.TITO_I18N = {
 
     card_quick: "إضافة سريعة",
     card_new: "جديد",
+    card_graphic: "مطبوع",
     card_colors: "{n} ألوان",
     card_sizes: "المقاسات",
 
@@ -1484,6 +1637,228 @@ window.TITO_I18N = {
 </script>
   <script>
 /* ==========================================================================
+   TITO STORE — PAGE ADDRESSES + SEO
+   One place that decides each page's web address and its search-engine
+   data (title, description, links between languages, structured data).
+   Used by the live site and by the page generator, so both always agree.
+
+   Addresses (Arabic pages live under /ar/):
+     /                       home              /ar/
+     /shop/                  all products      /ar/shop/
+     /shop/hoodies/          a category        /ar/shop/hoodies/
+     /shop/new/              new arrivals      /ar/shop/new/
+     /shop/best-sellers/     best sellers      /ar/shop/best-sellers/
+     /products/<id>/         a product         /ar/products/<id>/
+     /about/                 about us          /ar/about/
+     /help/                  help & contact    /ar/help/
+   ========================================================================== */
+(function (root) {
+  "use strict";
+  var CFG = root.TITO_CONFIG, PRODUCTS = root.TITO_PRODUCTS, CATS = root.TITO_CATEGORIES,
+    I18N = root.TITO_I18N, COLORS = root.TITO_COLORS;
+
+  function tr(lang, key, vars) {
+    var s = (I18N[lang] && I18N[lang][key]) || I18N.en[key] || key;
+    if (vars) Object.keys(vars).forEach(function (k) { s = s.split("{" + k + "}").join(vars[k]); });
+    return s;
+  }
+  function money(n, lang) {
+    var num = Number(n).toLocaleString("en-US");
+    return lang === "ar" ? num + " " + CFG.currency.ar : CFG.currency.en + " " + num;
+  }
+  function byId(id) { return PRODUCTS.filter(function (p) { return p.id === id; })[0]; }
+  function isCat(k) { return CATS.some(function (c) { return c.key === k; }); }
+
+  /* ------------------------------------------------------------ addresses */
+  // route = { path: [...], query: {...} } -> address relative to the site root, e.g. "ar/shop/hoodies/"
+  function pathFor(route, lang) {
+    var p = route.path || [], q = route.query || {}, out = "", search = {};
+    switch (p[0] || "") {
+      case "": out = ""; break;
+      case "shop":
+        if (q.view === "new") out = "shop/new/";
+        else if (q.tag === "bestseller") out = "shop/best-sellers/";
+        else if (q.cat && isCat(q.cat)) out = "shop/" + q.cat + "/";
+        else out = "shop/";
+        if (q.q) search.q = q.q;
+        break;
+      case "product": out = "products/" + encodeURIComponent(p[1] || "") + "/"; if (q.color) search.color = q.color; break;
+      case "about": out = "about/"; break;
+      case "info": out = "help/"; if (p[1] && p[1] !== "payment") search.section = p[1]; break;
+      default: out = "";
+    }
+    if (lang === "ar") out = "ar/" + out;
+    var qs = Object.keys(search).map(function (k) { return k + "=" + encodeURIComponent(search[k]); }).join("&");
+    return out + (qs ? "?" + qs : "");
+  }
+  function routeKey(route, lang) {
+    var q = route.query || {};
+    return (lang || "en") + ":" + (route.path || []).join("/") + "?" + Object.keys(q).sort().map(function (k) { return k + "=" + q[k]; }).join("&");
+  }
+  // address relative to the site root (+ ?search) -> route
+  function parse(rel, search) {
+    var segs = String(rel || "").split("/").filter(Boolean).map(function (s) { try { return decodeURIComponent(s); } catch (e) { return s; } });
+    var lang = "en";
+    if (segs[0] === "ar") { lang = "ar"; segs.shift(); }
+    else if (segs[0] === "en") segs.shift();
+    if (segs[segs.length - 1] === "index.html") segs.pop();
+    var sp = {};
+    new URLSearchParams(search || "").forEach(function (v, k) { sp[k] = v; });
+    var path = [], query = {};
+    if (!segs.length) path = [];
+    else if (segs[0] === "shop" && segs.length <= 2) {
+      path = ["shop"];
+      if (segs[1] === "new") query.view = "new";
+      else if (segs[1] === "best-sellers") query.tag = "bestseller";
+      else if (segs[1] && isCat(segs[1])) query.cat = segs[1];
+      else if (segs[1]) path = ["404"];
+      if (sp.q) query.q = sp.q;
+    } else if (segs[0] === "products" && segs[1] && segs.length === 2) {
+      path = ["product", segs[1]];
+      if (sp.color) query.color = sp.color;
+    } else if (segs[0] === "about" && segs.length === 1) path = ["about"];
+    else if (segs[0] === "help" && segs.length === 1) path = ["info", sp.section || "payment"];
+    else path = ["404"];
+    var r = { path: path, query: query, lang: lang };
+    r.key = routeKey(r, lang);
+    return r;
+  }
+
+  /* ----------------------------------------------------------- page list */
+  function allPages() {
+    var routes = [{ path: [], query: {} }, { path: ["shop"], query: {} }]
+      .concat(CATS.map(function (c) { return { path: ["shop"], query: { cat: c.key } }; }))
+      .concat([{ path: ["shop"], query: { view: "new" } }, { path: ["shop"], query: { tag: "bestseller" } }])
+      .concat(PRODUCTS.map(function (p) { return { path: ["product", p.id], query: {} }; }))
+      .concat([{ path: ["about"], query: {} }, { path: ["info", "payment"], query: {} }]);
+    var out = [];
+    routes.forEach(function (r) { ["en", "ar"].forEach(function (l) { out.push({ route: r, lang: l, rel: pathFor(r, l) }); }); });
+    return out;
+  }
+
+  /* ----------------------------------------------------------------- SEO */
+  function productsInCat(key) { return PRODUCTS.filter(function (p) { return p.category === key; }); }
+  function fromPrice(list, lang) { return money(Math.min.apply(null, list.map(function (p) { return p.price; })), lang); }
+  function colorCount(list) { var s = {}; list.forEach(function (p) { p.colors.forEach(function (c) { s[c] = 1; }); }); return Object.keys(s).length; }
+  function newList() {
+    var by = PRODUCTS.slice().sort(function (a, b) { return b.addedAt.localeCompare(a.addedAt); });
+    var t = by.filter(function (p) { return p.tags.indexOf("new") > -1; });
+    return t.length ? t : by.slice(0, 4);
+  }
+  function mainPhoto(p, c) { var s = (p.photos && p.photos[c || p.colors[0]]) || {}; return s.main || ""; }
+
+  // abs(rel) turns a site-root-relative address into a full one.
+  function seoFor(route, lang, abs) {
+    var T = function (k, v) { return tr(lang, k, v); };
+    var store = CFG.storeName[lang], p0 = (route.path || [])[0] || "", q = route.query || {};
+    var canonRoute = { path: route.path, query: {} };
+    if (p0 === "shop") canonRoute.query = { cat: q.cat, view: q.view, tag: q.tag };
+    if (p0 === "info") canonRoute.path = ["info", "payment"];
+    var rel = pathFor(canonRoute, lang);
+    var out = {
+      lang: lang, title: "", description: "", robots: "index,follow,max-image-preview:large",
+      canonical: abs(rel), alternates: { en: abs(pathFor(canonRoute, "en")), ar: abs(pathFor(canonRoute, "ar")) },
+      ogType: "website", image: abs("images/campaign-hoodies.jpg"), imageAlt: store, jsonld: [], preload: ""
+    };
+    var org = {
+      "@context": "https://schema.org", "@type": "OnlineStore", "@id": abs("") + "#store",
+      name: CFG.storeName.en, alternateName: CFG.storeName.ar, url: abs(""),
+      logo: abs("images/icon-512.png"), image: abs("images/campaign-hoodies.jpg"),
+      description: tr("en", "seo_home_desc"),
+      sameAs: [CFG.social.instagram.url],
+      areaServed: { "@type": "Country", name: "Egypt" },
+      currenciesAccepted: CFG.currency.code,
+      contactPoint: { "@type": "ContactPoint", contactType: "customer service", telephone: "+" + String(CFG.whatsappNumber).replace(/\D/g, ""), areaServed: "EG", availableLanguage: ["en", "ar"] }
+    };
+    out.jsonld.push(org);
+    var crumbs = [{ name: T("home"), rel: pathFor({ path: [] }, lang) }];
+    function breadcrumb() {
+      return { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: crumbs.map(function (c, i) {
+        return { "@type": "ListItem", position: i + 1, name: c.name, item: abs(c.rel) };
+      }) };
+    }
+    function itemList(list) {
+      return { "@context": "https://schema.org", "@type": "ItemList", itemListElement: list.map(function (p, i) {
+        return { "@type": "ListItem", position: i + 1, url: abs(pathFor({ path: ["product", p.id] }, lang)), name: p.name[lang] };
+      }) };
+    }
+
+    if (!p0) {
+      out.title = T("seo_home_title"); out.description = T("seo_home_desc");
+      out.jsonld.push({ "@context": "https://schema.org", "@type": "WebSite", name: store, url: abs(pathFor({ path: [] }, lang)), inLanguage: lang,
+        publisher: { "@id": abs("") + "#store" },
+        potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: abs(pathFor({ path: ["shop"] }, lang)) + "?q={search_term_string}" }, "query-input": "required name=search_term_string" } });
+      out.jsonld.push(itemList(newList()));
+    } else if (p0 === "shop") {
+      var list = PRODUCTS, key = "shop";
+      if (q.view === "new") { key = "new"; list = newList(); }
+      else if (q.tag === "bestseller") { key = "best"; list = PRODUCTS.filter(function (p) { return p.tags.indexOf("bestseller") > -1; }); }
+      else if (q.cat && isCat(q.cat)) { key = "cat_" + q.cat; list = productsInCat(q.cat); }
+      var vars = { from: list.length ? fromPrice(list, lang) : "", n: colorCount(list) };
+      out.title = T("seo_" + key + "_title", vars); out.description = T("seo_" + key + "_desc", vars);
+      crumbs.push({ name: T("shop_title"), rel: pathFor({ path: ["shop"] }, lang) });
+      if (key !== "shop") crumbs.push({ name: out.title.split(" | ")[0].split(" – ")[0], rel: rel });
+      if (q.q) { out.title = T("seo_search_title", { q: q.q }); out.robots = "noindex,follow"; }
+      out.jsonld.push({ "@context": "https://schema.org", "@type": "CollectionPage", name: out.title, description: out.description, url: out.canonical, inLanguage: lang, isPartOf: { "@id": abs("") + "#store" } });
+      out.jsonld.push(itemList(list));
+      out.jsonld.push(breadcrumb());
+      if (list[0]) out.image = abs(mainPhoto(list[0]));
+    } else if (p0 === "product") {
+      var p = byId(route.path[1]);
+      if (!p) { out.title = T("seo_404_title"); out.description = T("notfound_text"); out.robots = "noindex,follow"; out.jsonld = []; return out; }
+      var cat = CATS.filter(function (c) { return c.key === p.category; })[0];
+      var cnames = p.colors.map(function (c) { return COLORS[c][lang]; });
+      out.title = p.name[lang] + " – " + T("seo_single_" + p.category) + " | " + store;
+      out.description = T("seo_product_desc", { name: p.name[lang], n: p.colors.length, colors: cnames.join(lang === "ar" ? "، " : ", "),
+        sizes: p.sizes[0] + "–" + p.sizes[p.sizes.length - 1], price: money(p.price, lang) });
+      out.ogType = "product";
+      out.image = abs(mainPhoto(p)); out.imageAlt = p.name[lang]; out.preload = mainPhoto(p);
+      out.price = p.price;
+      crumbs.push({ name: T("shop_title"), rel: pathFor({ path: ["shop"] }, lang) });
+      if (cat) crumbs.push({ name: cat[lang], rel: pathFor({ path: ["shop"], query: { cat: cat.key } }, lang) });
+      crumbs.push({ name: p.name[lang], rel: rel });
+      out.jsonld.push({
+        "@context": "https://schema.org", "@type": "Product", "@id": out.canonical + "#product",
+        name: p.name[lang], description: p.description[lang], sku: p.id, url: out.canonical,
+        image: p.colors.map(function (c) { return mainPhoto(p, c); }).filter(Boolean).map(abs),
+        brand: { "@type": "Brand", name: CFG.storeName.en },
+        category: cat ? cat.en : p.category,
+        color: p.colors.map(function (c) { return COLORS[c].en; }).join(", "),
+        size: p.sizes.join(", "),
+        audience: { "@type": "PeopleAudience", suggestedGender: "male" },
+        offers: {
+          "@type": "Offer", url: out.canonical, priceCurrency: CFG.currency.code, price: String(p.price),
+          availability: "https://schema.org/InStock", itemCondition: "https://schema.org/NewCondition",
+          seller: { "@id": abs("") + "#store" }
+        }
+      });
+      out.jsonld.push(breadcrumb());
+    } else if (p0 === "about") {
+      out.title = T("seo_about_title"); out.description = T("seo_about_desc");
+      crumbs.push({ name: T("about_title"), rel: rel });
+      out.jsonld.push({ "@context": "https://schema.org", "@type": "AboutPage", name: out.title, description: out.description, url: out.canonical, inLanguage: lang, about: { "@id": abs("") + "#store" } });
+      out.jsonld.push({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: [1, 2, 3, 4].map(function (i) {
+        return { "@type": "Question", name: T("faq" + i + "_q"), acceptedAnswer: { "@type": "Answer", text: T("faq" + i + "_a") } };
+      }) });
+      out.jsonld.push(breadcrumb());
+    } else if (p0 === "info") {
+      out.title = T("seo_help_title"); out.description = T("seo_help_desc");
+      crumbs.push({ name: T("footer_help"), rel: rel });
+      out.jsonld.push({ "@context": "https://schema.org", "@type": "ContactPage", name: out.title, url: out.canonical, inLanguage: lang, about: { "@id": abs("") + "#store" } });
+      out.jsonld.push(breadcrumb());
+    } else {
+      out.title = T("seo_404_title"); out.description = T("notfound_text"); out.robots = "noindex,follow";
+      out.canonical = ""; out.alternates = null; out.jsonld = [];
+    }
+    return out;
+  }
+
+  root.TitoRoutes = { pathFor: pathFor, parse: parse, routeKey: routeKey, allPages: allPages, seoFor: seoFor };
+})(typeof window !== "undefined" ? window : globalThis);
+
+</script>
+  <script>
+/* ==========================================================================
    TITO STORE — APP
    React 18 + htm (JSX-like templates without a build step).
    Store settings: js/config.js   Catalog: js/products.js   Text: js/i18n.js
@@ -1506,6 +1881,20 @@ window.TITO_I18N = {
   var CART_KEY = "tito-cart-v1";
   var LANG_KEY = "tito-lang";
   var INTRO_KEY = "tito-intro-seen";
+  var ROUTES = window.TitoRoutes;
+
+  // "path" mode: the hosted website, where every page has its own address (/shop/hoodies/, /ar/about/ ...).
+  // "hash" mode: the single-file version and previews, where pages live after # in one file.
+  var MODE = (window.TITO_ROUTE_MODE === "path" && /^https?:$/.test(location.protocol) && ROUTES) ? "path" : "hash";
+  var BASE_PATH = "/";
+  if (MODE === "path") { try { BASE_PATH = new URL(window.TITO_BASE || "./", location.href).pathname; } catch (e) { BASE_PATH = "/"; } }
+  var CUR_LANG = "en";
+  // Page addresses change without reloading, so pin relative head links (icons, manifest) to full addresses.
+  if (MODE === "path") {
+    Array.prototype.forEach.call(document.querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"], link[rel="manifest"], link[rel="preload"]'), function (el) {
+      el.setAttribute("href", el.href);
+    });
+  }
 
   /* ------------------------------------------------------------------ utils */
   var store = {
@@ -1526,7 +1915,12 @@ window.TITO_I18N = {
   function isSoldOut(p, color, size) { return !!(p.soldOut && p.soldOut[color] && p.soldOut[color].indexOf(size) > -1); }
   var PLACEHOLDER = "data:image/svg+xml;charset=utf-8," + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><rect width="4" height="5" fill="#d9d6d0"/></svg>');
   // Photos are stored as paths; the single-file build maps them to embedded data.
-  function asset(path) { return (path && window.TITO_IMAGES && window.TITO_IMAGES[path]) || path; }
+  function asset(path) {
+    if (!path) return path;
+    if (window.TITO_IMAGES && window.TITO_IMAGES[path]) return window.TITO_IMAGES[path];
+    if (MODE === "path" && !/^([a-z]+:|\/)/i.test(path)) return BASE_PATH + path;
+    return path;
+  }
   function photoSet(p, color) { return (p.photos && p.photos[color]) || {}; }
   function mainImg(p, color) { return asset(photoSet(p, color).main) || PLACEHOLDER; }
   function altImg(p, color) {
@@ -1557,17 +1951,20 @@ window.TITO_I18N = {
   function waLink(text) {
     return "https://wa.me/" + String(CFG.whatsappNumber).replace(/\D/g, "") + "?text=" + encodeURIComponent(text);
   }
-  // Public address of the site, used for product links inside WhatsApp messages.
+  // Public address of the site root, used for product links inside WhatsApp messages and for SEO tags.
   function siteBase() {
-    var s = String(CFG.siteUrl || "").trim();
-    if (s) return s.split("#")[0];
+    var s = String(CFG.siteUrl || "").trim().split("#")[0];
+    if (s) return s.replace(/\/?$/, "/");
+    if (MODE === "path") return location.origin + BASE_PATH;
     if (/^https?:$/.test(location.protocol)) return location.origin + location.pathname;
     return "";
   }
-  // Short link that opens the product page in that colour, e.g. https://site/#p-wide-leg-sweatpants--olive
+  // Link that opens the product page in that colour.
   function productLink(p, color) {
     var b = siteBase();
-    return b ? b + "#p-" + p.id + (color ? "--" + color : "") : "";
+    if (!b) return "";
+    if (MODE === "path") return b + ROUTES.pathFor({ path: ["product", p.id], query: color ? { color: color } : {} }, CUR_LANG);
+    return b + "#p-" + p.id + (color ? "--" + color : "");
   }
   // Direct link to the product photo (only when the site has a normal web address)
   function photoLink(p, color) {
@@ -1626,39 +2023,78 @@ window.TITO_I18N = {
     new URLSearchParams(parts[1] || "").forEach(function (v, k) { query[k] = v; });
     return { path: path, query: query, key: raw };
   }
-  function hashFor(path, query) {
+  function parsePath() {
+    var p = location.pathname;
+    var rel = p.indexOf(BASE_PATH) === 0 ? p.slice(BASE_PATH.length) : p.replace(/^\//, "");
+    return ROUTES.parse(rel, location.search);
+  }
+  function currentRoute() { return MODE === "path" ? parsePath() : parseHash(); }
+  // Link to a page: hashFor("shop", { cat: "hoodies" }) -> "/shop/hoodies/" (website) or "#/shop?cat=hoodies" (single file)
+  function hashFor(path, query, lang) {
+    if (MODE === "path") {
+      var q = {};
+      Object.keys(query || {}).forEach(function (k) { if (query[k] !== "" && query[k] != null) q[k] = query[k]; });
+      return BASE_PATH + ROUTES.pathFor({ path: String(path || "").split("/").filter(Boolean), query: q }, lang || CUR_LANG);
+    }
     var qs = new URLSearchParams();
     Object.keys(query || {}).forEach(function (k) { if (query[k] !== "" && query[k] != null) qs.set(k, query[k]); });
     var s = qs.toString();
     return "#/" + path + (s ? "?" + s : "");
   }
-  function emitRoute() { routeListeners.forEach(function (f) { f(parseHash()); }); }
-  function go(hash, opts) {
+  function emitRoute() { var r = currentRoute(); routeListeners.forEach(function (f) { f(r); }); }
+  function go(url, opts) {
+    if (MODE === "path") {
+      navType = opts && opts.replace ? "replace" : "push";
+      try { history[opts && opts.replace ? "replaceState" : "pushState"](null, "", url); } catch (e) { location.href = url; return; }
+      emitRoute();
+      return;
+    }
     if (opts && opts.replace) {
       navType = "replace";
-      try { history.replaceState(history.state, "", hash); } catch (e) { window.location.replace(hash); return; }
+      try { history.replaceState(history.state, "", url); } catch (e) { window.location.replace(url); return; }
       emitRoute();
     } else {
       pendingPush = true;
-      if (window.location.hash === hash) { navType = "push"; emitRoute(); }
-      else window.location.hash = hash;
+      if (window.location.hash === url) { navType = "push"; emitRoute(); }
+      else window.location.hash = url;
     }
   }
-  window.addEventListener("hashchange", function () {
-    navType = pendingPush ? "push" : "pop";
-    pendingPush = false;
-    emitRoute();
-  });
-  document.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest('a[href^="#/"]');
-    if (a && !e.defaultPrevented && !e.metaKey && !e.ctrlKey) pendingPush = true;
-  }, true);
+  if (MODE === "path") {
+    // old #/ and #p- links still work: move them to the real address
+    if (/^#(\/|p-)/.test(location.hash)) {
+      var legacy = parseHash();
+      try { history.replaceState(null, "", BASE_PATH + ROUTES.pathFor(legacy, /^ar\//.test(location.pathname.slice(BASE_PATH.length)) ? "ar" : "en")); } catch (e) { /* ignore */ }
+    }
+    window.addEventListener("popstate", function () { navType = "pop"; emitRoute(); });
+    // open site links without reloading the page
+    document.addEventListener("click", function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target.closest && e.target.closest("a[href]");
+      if (!a || a.target === "_blank" || a.hasAttribute("download")) return;
+      var u;
+      try { u = new URL(a.href, location.href); } catch (err) { return; }
+      if (u.origin !== location.origin || u.pathname.indexOf(BASE_PATH) !== 0) return;
+      if (/\.(xml|txt|jpg|png|svg|webmanifest)$/i.test(u.pathname)) return;
+      e.preventDefault();
+      go(u.pathname + u.search);
+    });
+  } else {
+    window.addEventListener("hashchange", function () {
+      navType = pendingPush ? "push" : "pop";
+      pendingPush = false;
+      emitRoute();
+    });
+    document.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="#/"]');
+      if (a && !e.defaultPrevented && !e.metaKey && !e.ctrlKey) pendingPush = true;
+    }, true);
+  }
   try { history.scrollRestoration = "manual"; } catch (e) { /* not supported */ }
   var scrollMap = {};
-  window.addEventListener("scroll", function () { scrollMap[parseHash().key] = window.scrollY; }, { passive: true });
+  window.addEventListener("scroll", function () { scrollMap[currentRoute().key] = window.scrollY; }, { passive: true });
 
   function useRoute() {
-    var s = useState(parseHash());
+    var s = useState(currentRoute);
     useEffect(function () {
       var f = function (r) { s[1](r); };
       routeListeners.push(f);
@@ -1800,10 +2236,11 @@ window.TITO_I18N = {
     var r = app.route, q = r.query;
     function cur(test) { return test ? "page" : undefined; }
     var nav = [
-      { href: "#/shop", label: t("nav_shop"), on: r.path[0] === "shop" && !q.view && !q.tag && !q.cat },
-      { href: "#/shop?view=new", label: t("nav_new"), on: q.view === "new" },
-      { href: "#/shop?cat=hoodies", label: t("nav_hoodies"), on: q.cat === "hoodies" },
-      { href: "#/shop?tag=bestseller", label: t("nav_best"), on: q.tag === "bestseller" }
+      { href: hashFor("shop"), label: t("nav_shop"), on: r.path[0] === "shop" && !q.view && !q.tag && !q.cat },
+      { href: hashFor("shop", { view: "new" }), label: t("nav_new"), on: q.view === "new" },
+      { href: hashFor("shop", { cat: "hoodies" }), label: t("nav_hoodies"), on: q.cat === "hoodies" },
+      { href: hashFor("shop", { tag: "bestseller" }), label: t("nav_best"), on: q.tag === "bestseller" },
+      { href: hashFor("about"), label: t("nav_about"), on: r.path[0] === "about" }
     ];
     return html`
       ${CFG.announcement && CFG.announcement[app.lang] ? html`<div className="announce label">${CFG.announcement[app.lang]}</div>` : null}
@@ -1817,7 +2254,7 @@ window.TITO_I18N = {
               ${nav.map(function (n) { return html`<a key=${n.href} href=${n.href} aria-current=${cur(n.on)}>${n.label}</a>`; })}
             </nav>
           </div>
-          <a className="wordmark" href="#/" aria-label="Tito Store — home">TITO <span>STORE</span></a>
+          <a className="wordmark" href=${hashFor("")} aria-label=${CFG.storeName[app.lang] + " — " + t("home")}>TITO <span>STORE</span></a>
           <div className="header-end">
             <button className="lang-btn hide-sm" onClick=${app.toggleLang} aria-label=${t("switchLabel")} lang=${app.lang === "en" ? "ar" : "en"}>
               <span className=${app.lang === "en" ? "on" : "off"}>EN</span><span className=${app.lang === "ar" ? "on" : "off"}>ع</span>
@@ -1837,9 +2274,9 @@ window.TITO_I18N = {
     var close = function () { app.close("menu"); };
     useOverlay(true, close, ref);
     var links = [
-      ["#/shop", t("nav_shop")], ["#/shop?view=new", t("nav_new")], ["#/shop?cat=hoodies", t("nav_hoodies")],
-      ["#/shop?cat=sweatshirts", CATS[1][app.lang]], ["#/shop?cat=sweatpants", CATS[2][app.lang]],
-      ["#/shop?tag=bestseller", t("nav_best")]
+      [hashFor("shop"), t("nav_shop")], [hashFor("shop", { view: "new" }), t("nav_new")], [hashFor("shop", { cat: "hoodies" }), t("nav_hoodies")],
+      [hashFor("shop", { cat: "sweatshirts" }), CATS[1][app.lang]], [hashFor("shop", { cat: "sweatpants" }), CATS[2][app.lang]],
+      [hashFor("shop", { tag: "bestseller" }), t("nav_best")], [hashFor("about"), t("nav_about")]
     ];
     return html`<div>
       <div className="scrim" onClick=${close}></div>
@@ -1888,7 +2325,7 @@ window.TITO_I18N = {
             ${!q.trim() ? html`<p className="muted" style=${{ paddingTop: "8px" }}>${t("search_hint")}</p>` : null}
             ${q.trim() && !results.length ? html`<p className="muted" style=${{ paddingTop: "8px" }}>${t("search_none", { q: q })}</p>` : null}
             ${results.slice(0, 6).map(function (p) {
-              return html`<a key=${p.id} className="sr-item" href=${"#/product/" + p.id} onClick=${close}>
+              return html`<a key=${p.id} className="sr-item" href=${hashFor("product/" + p.id)} onClick=${close}>
                 <img src=${mainImg(p, p.colors[0])} alt="" />
                 <span><strong style=${{ fontWeight: 500 }}>${p.name[app.lang]}</strong><small>${t("card_colors", { n: p.colors.length })}</small></span>
                 <span className="price">${money(p.price, app.lang)}</span>
@@ -2037,7 +2474,7 @@ window.TITO_I18N = {
         ${!rows.length ? html`<div className="drawer-body"><div className="empty">
             <${Icon} name="bag" className="muted" />
             <h3>${t("cart_empty")}</h3><p>${t("cart_empty_text")}</p>
-            <a className="btn" href="#/shop" onClick=${close}>${t("continue")}</a>
+            <a className="btn" href=${hashFor("shop")} onClick=${close}>${t("continue")}</a>
           </div></div>` : html`
           <div className="drawer-body">
             ${rows.map(function (r) {
@@ -2067,7 +2504,7 @@ window.TITO_I18N = {
             <div className="sum-row total"><span>${t("total")}</span><span className="price" data-total>${money(total, lang)}</span></div>
             <p className="note">${t("checkout_note")}</p>
             <a className="btn wa block" data-wa="cart" href=${waLink(msgAsk(lang, rows, "cart"))} target="_blank" rel="noopener"><${Icon} name="wa" />${t("order_cart_wa")}</a>
-            <button className="btn ghost block" type="button" onClick=${function () { close(); if (app.route.path[0] !== "shop") go("#/shop"); }}>${t("continue")}</button>
+            <button className="btn ghost block" type="button" onClick=${function () { close(); if (app.route.path[0] !== "shop") go(hashFor("shop")); }}>${t("continue")}</button>
           </div>`}
       </aside>
     </div>`;
@@ -2100,8 +2537,8 @@ window.TITO_I18N = {
     var count = app.cart.reduce(function (n, l) { return n + l.qty; }, 0);
     var on = function (k) { return k ? "page" : undefined; };
     return html`<nav className="mobile-bar" aria-label=${t("nav_menu")}>
-      <a href="#/" aria-current=${on(!r.path[0])}><${Icon} name="home" /><span>${t("home")}</span></a>
-      <a href="#/shop" aria-current=${on(r.path[0] === "shop")}><${Icon} name="grid" /><span>${t("nav_shop")}</span></a>
+      <a href=${hashFor("")} aria-current=${on(!r.path[0])}><${Icon} name="home" /><span>${t("home")}</span></a>
+      <a href=${hashFor("shop")} aria-current=${on(r.path[0] === "shop")}><${Icon} name="grid" /><span>${t("nav_shop")}</span></a>
       <button type="button" onClick=${function () { app.open("search"); }}><${Icon} name="search" /><span>${t("nav_search")}</span></button>
       <button type="button" onClick=${function () { app.open("cart"); }}><span className="mb-ico"><${Icon} name="bag" />${count ? html`<span className="badge num">${count}</span>` : null}</span><span>${t("nav_cart")}</span></button>
       <a className="mb-wa" href=${askLinkForRoute(app)} target="_blank" rel="noopener"><${Icon} name="wa" /><span>${t("ask_short")}</span></a>
@@ -2358,13 +2795,13 @@ window.TITO_I18N = {
     return html`<article className="card" data-product=${p.id}>
       <div className="card-media tilt" ref=${media}>
         <a href=${href} tabIndex="-1" aria-hidden="true">
-          <img className="main" src=${mainImg(p, color)} alt="" loading=${lazy} decoding="async" />
+          <img className="main" src=${mainImg(p, color)} alt=${p.name[lang] + " – " + colorName(color, lang)} loading=${lazy} decoding="async" />
           <img className="alt" src=${altImg(p, color)} alt="" loading="lazy" decoding="async" />
         </a>
         <span className="sheen" aria-hidden="true"></span>
         ${isNew(p) || p.tags.indexOf("graphic") > -1 ? html`<span className="card-flags">
           ${isNew(p) ? html`<span className="card-flag new label">${t("card_new")}</span>` : null}
-          ${p.tags.indexOf("graphic") > -1 ? html`<span className="card-flag label">Graphic</span>` : null}
+          ${p.tags.indexOf("graphic") > -1 ? html`<span className="card-flag label">${t("card_graphic")}</span>` : null}
         </span>` : null}
         <button type="button" className="quick" aria-label=${t("card_quick") + ": " + p.name[lang]}
           onClick=${function () { app.open("quick", { id: p.id, color: color }); }}>
@@ -2434,8 +2871,8 @@ window.TITO_I18N = {
             <h1 className="hero-title" id="hero-title"><span>${t("hero_title_1")}</span><span>${t("hero_title_2")}</span></h1>
             <p className="hero-sub">${t("hero_sub")}</p>
             <div className="hero-ctas">
-              <a className="btn light" href="#/shop">${t("hero_cta")} <${Icon} name="arrow" className="flip" /></a>
-              <a className="btn outline-light" href="#/shop?view=new">${t("hero_cta2")}</a>
+              <a className="btn light" href=${hashFor("shop")}>${t("hero_cta")} <${Icon} name="arrow" className="flip" /></a>
+              <a className="btn outline-light" href=${hashFor("shop", { view: "new" })}>${t("hero_cta2")}</a>
             </div>
             <div className="hero-meta label">
               ${CATS.map(function (c) { return html`<a key=${c.key} href=${hashFor("shop", { cat: c.key })}><b className="num">${catCount(c)}</b> ${c[lang]}</a>`; })}
@@ -2462,7 +2899,7 @@ window.TITO_I18N = {
       </section>
 
       <div className="section wrap" style=${{ paddingTop: 0 }}>
-        <${ProductRail} id="new" title=${t("rail_new")} href="#/shop?view=new" items=${newest.map(function (p) { return { p: p }; })} />
+        <${ProductRail} id="new" title=${t("rail_new")} href=${hashFor("shop", { view: "new" })} items=${newest.map(function (p) { return { p: p }; })} />
       </div>
 
 
@@ -2497,6 +2934,83 @@ window.TITO_I18N = {
     </div>`;
   }
 
+  /* ------------------------------------------------------------------ about */
+  function About() {
+    var app = useApp(), t = app.t, lang = app.lang;
+    function catCount(c) { return PRODUCTS.filter(function (p) { return p.category === c.key; }).length; }
+    return html`<div className="about">
+      <section className="wrap about-hero" aria-labelledby="about-title">
+        <nav className="crumbs" aria-label="Breadcrumb"><a href=${hashFor("")}>${t("home")}</a><span aria-hidden="true">/</span><span aria-current="page">${t("about_title")}</span></nav>
+        <p className="label muted">${t("about_eyebrow")}</p>
+        <h1 className="page-title" id="about-title">${t("about_title")}</h1>
+        <p className="about-lead">${t("about_lead")}</p>
+      </section>
+
+      <section className="wrap about-story" aria-labelledby="story-title">
+        <figure className="about-photo">
+          <img src=${asset("images/campaign-hoodies.jpg")} alt=${lang === "ar" ? "هوديز تيتو ستور الأوفرسايز بستة ألوان" : "Tito Store oversized hoodies in six colours"} loading="eager" />
+        </figure>
+        <div className="about-copy">
+          <h2 className="section-title" id="story-title">${t("about_story_t")}</h2>
+          <p>${t("about_story_1")}</p>
+          <p>${t("about_story_2")}</p>
+        </div>
+      </section>
+
+      <section className="section wrap" aria-labelledby="make-title">
+        <div className="section-head"><h2 className="section-title" id="make-title">${t("about_make_t")}</h2></div>
+        <div className="cats">
+          ${CATS.map(function (c) {
+            return html`<a key=${c.key} className="cat" href=${hashFor("shop", { cat: c.key })}>
+              <img src=${asset(c.image)} alt=${c[lang]} loading="lazy" />
+              <span className="cat-label">
+                <span><strong>${c[lang]}</strong><small className="num">${catCount(c) === 1 ? t("cat_count_1") : t("cat_count", { n: catCount(c) })}</small></span>
+                <span className="arrow"><${Icon} name="arrow" className="flip" /></span>
+              </span>
+            </a>`;
+          })}
+        </div>
+      </section>
+
+      <section className="about-steps on-dark" aria-labelledby="order-title">
+        <div className="wrap">
+          <h2 className="section-title" id="order-title">${t("about_order_t")}</h2>
+          <ol className="steps">
+            ${[1, 2, 3].map(function (i) {
+              return html`<li key=${i}><span className="step-n num" aria-hidden="true">${i}</span><h3>${t("about_step" + i + "_t")}</h3><p>${t("about_step" + i + "_d")}</p></li>`;
+            })}
+          </ol>
+          <a className="btn wa" href=${waLink(msgGeneral(lang))} target="_blank" rel="noopener"><${Icon} name="wa" />${t("chat_wa")}</a>
+        </div>
+      </section>
+
+      <section className="section wrap" aria-labelledby="values-title">
+        <div className="section-head"><h2 className="section-title" id="values-title">${t("about_values_t")}</h2></div>
+        <${Pillars} />
+      </section>
+
+      <section className="section wrap faq" style=${{ paddingTop: 0 }} aria-labelledby="faq-title">
+        <div className="section-head"><h2 className="section-title" id="faq-title">${t("about_faq_t")}</h2></div>
+        <div className="acc">
+          ${[1, 2, 3, 4].map(function (i) {
+            return html`<details key=${i} open=${i === 1}>
+              <summary>${t("faq" + i + "_q")}<${Icon} name="plus" /></summary>
+              <div className="acc-body"><p>${t("faq" + i + "_a")}</p></div>
+            </details>`;
+          })}
+        </div>
+      </section>
+
+      <section className="wrap about-cta" aria-labelledby="cta-title">
+        <h2 className="section-title" id="cta-title">${t("about_cta_t")}</h2>
+        <div className="hero-ctas" style=${{ marginTop: 0 }}>
+          <a className="btn" href=${hashFor("shop")}>${t("hero_cta")} <${Icon} name="arrow" className="flip" /></a>
+          <a className="btn ghost" href=${CFG.social.instagram.url} target="_blank" rel="noopener"><${Icon} name="insta" />${t("ig_cta")}</a>
+        </div>
+      </section>
+    </div>`;
+  }
+
   function filterProducts(q) {
     var list = PRODUCTS.slice();
     if (q.cat) list = list.filter(function (p) { return p.category === q.cat; });
@@ -2519,21 +3033,22 @@ window.TITO_I18N = {
     return html`<div className="wrap shop-simple">
       <div className="page-head">
         <h1 className="page-title">${title}</h1>
+        ${q.q ? null : html`<p className="shop-intro">${t(q.view === "new" ? "intro_new" : q.tag === "bestseller" ? "intro_best" : cat ? "intro_" + cat.key : "intro_shop")}</p>`}
       </div>
       <nav className="tabs" aria-label=${t("category")}>
         ${tabs.map(function (tb) {
-          return html`<a key=${tb.key || "all"} className="tab" href=${tb.key ? hashFor("shop", { cat: tb.key }) : "#/shop"}
+          return html`<a key=${tb.key || "all"} className="tab" href=${tb.key ? hashFor("shop", { cat: tb.key }) : hashFor("shop")}
             aria-current=${current === tb.key ? "page" : undefined}>${tb.label} <span className="num">${tb.n}</span></a>`;
         })}
       </nav>
       ${q.q ? html`<div className="search-note">
         <span>${t("filter_search", { q: q.q })}</span>
-        <a className="text-btn" href="#/shop">${t("clear")}</a>
+        <a className="text-btn" href=${hashFor("shop")}>${t("clear")}</a>
       </div>` : null}
       ${list.length ? html`<div className="grid shop-grid">${list.map(function (p, i) { return html`<${ProductCard} key=${p.id} p=${p} eager=${i < 4} />`; })}</div>`
         : html`<div className="empty">
             <h2>${t("no_results")}</h2>
-            <a className="btn ghost" href="#/shop">${t("shop_title")}</a>
+            <a className="btn ghost" href=${hashFor("shop")}>${t("shop_title")}</a>
           </div>`}
     </div>`;
   }
@@ -2572,7 +3087,7 @@ window.TITO_I18N = {
     return html`<div className="wrap">
       <div className="page-head" style=${{ paddingBottom: "12px" }}>
         <nav className="crumbs" aria-label="Breadcrumb">
-          <a href="#/">${t("home")}</a><span aria-hidden="true">/</span>
+          <a href=${hashFor("")}>${t("home")}</a><span aria-hidden="true">/</span>
           <a href=${hashFor("shop", { cat: p.category })}>${cat ? cat[lang] : ""}</a><span aria-hidden="true">/</span>
           <span aria-current="page">${p.name[lang]}</span>
         </nav>
@@ -2613,7 +3128,7 @@ window.TITO_I18N = {
           <div style=${{ display: "grid", gap: "10px" }}>
             ${isNew(p) || p.tags.indexOf("graphic") > -1 ? html`<span className="pdp-flags">
               ${isNew(p) ? html`<span className="card-flag new label">${t("card_new")}</span>` : null}
-              ${p.tags.indexOf("graphic") > -1 ? html`<span className="card-flag label">Graphic</span>` : null}
+              ${p.tags.indexOf("graphic") > -1 ? html`<span className="card-flag label">${t("card_graphic")}</span>` : null}
             </span>` : null}
             <h1>${p.name[lang]}</h1>
             <span className="price" data-price>${money(p.price, lang)}</span>
@@ -2651,7 +3166,7 @@ window.TITO_I18N = {
     }, [sec]);
     return html`<div className="wrap">
       <div className="page-head">
-        <nav className="crumbs" aria-label="Breadcrumb"><a href="#/">${t("home")}</a><span aria-hidden="true">/</span><span aria-current="page">${t("footer_help")}</span></nav>
+        <nav className="crumbs" aria-label="Breadcrumb"><a href=${hashFor("")}>${t("home")}</a><span aria-hidden="true">/</span><span aria-current="page">${t("footer_help")}</span></nav>
         <h1 className="page-title">${t("footer_help")}</h1>
       </div>
       <div className="info">
@@ -2668,7 +3183,7 @@ window.TITO_I18N = {
     var t = useApp().t;
     return html`<div className="wrap"><div className="empty" style=${{ paddingBlock: "120px" }}>
       <h1 className="page-title">${t("notfound_title")}</h1><p>${t("notfound_text")}</p>
-      <a className="btn" href="#/shop">${t("hero_cta")}</a></div></div>`;
+      <a className="btn" href=${hashFor("shop")}>${t("hero_cta")}</a></div></div>`;
   }
 
   function Footer() {
@@ -2688,16 +3203,17 @@ window.TITO_I18N = {
           <div>
             <h3 className="label">${t("footer_shop")}</h3>
             <ul>
-              <li><a href="#/shop">${t("shop_title")}</a></li>
-              <li><a href="#/shop?view=new">${t("nav_new")}</a></li>
+              <li><a href=${hashFor("shop")}>${t("shop_title")}</a></li>
+              <li><a href=${hashFor("shop", { view: "new" })}>${t("nav_new")}</a></li>
               ${CATS.map(function (c) { return html`<li key=${c.key}><a href=${hashFor("shop", { cat: c.key })}>${c[lang]}</a></li>`; })}
             </ul>
           </div>
           <div>
             <h3 className="label">${t("footer_help")}</h3>
             <ul>
-              <li><a href="#/info/payment">${t("info_payment")}</a></li>
-              <li><a href="#/info/contact">${t("info_contact")}</a></li>
+              <li><a href=${hashFor("about")}>${t("nav_about")}</a></li>
+              <li><a href=${hashFor("info/payment")}>${t("info_payment")}</a></li>
+              <li><a href=${hashFor("info/contact")}>${t("info_contact")}</a></li>
             </ul>
           </div>
           <div>
@@ -2718,41 +3234,51 @@ window.TITO_I18N = {
   }
 
   /* -------------------------------------------------------------------- SEO */
+  // Keeps the page's search-engine tags in step with the page being shown.
   function setMeta(attr, key, val) {
     var el = document.head.querySelector("meta[" + attr + '="' + key + '"]');
+    if (val == null || val === "") { if (el) el.remove(); return; }
     if (!el) { el = document.createElement("meta"); el.setAttribute(attr, key); document.head.appendChild(el); }
     el.setAttribute("content", val);
   }
+  function setLink(rel, href, hreflang) {
+    var sel = 'link[rel="' + rel + '"]' + (hreflang ? '[hreflang="' + hreflang + '"]' : "");
+    var el = document.head.querySelector(sel);
+    if (!href) { if (el) el.remove(); return; }
+    if (!el) { el = document.createElement("link"); el.rel = rel; if (hreflang) el.hreflang = hreflang; document.head.appendChild(el); }
+    el.href = href;
+  }
   function applySeo(route, lang) {
-    var t = function (k, v) { return tr(lang, k, v); };
-    var store = CFG.storeName[lang], title, desc = t("meta_home"), img = "images/campaign-hoodies.jpg";
-    var ld = null;
-    var p0 = route.path[0];
-    if (!p0) title = store + " — " + t("hero_title_1") + " " + t("hero_title_2");
-    else if (p0 === "shop") { title = t("shop_title") + " | " + store; desc = t("meta_shop"); }
-    else if (p0 === "product") {
-      var p = byId(route.path[1]);
-      if (p) {
-        title = p.name[lang] + " | " + store; desc = p.description[lang];
-        ld = { "@context": "https://schema.org", "@type": "Product", name: p.name[lang], image: (function () { try { return new URL(photoSet(p, p.colors[0]).main, location.href).href; } catch (e) { return ""; } })(), description: p.description[lang], brand: { "@type": "Brand", name: "Tito Store" },
-          color: p.colors.map(function (c) { return COLORS[c].en; }).join(", "), size: p.sizes.join(", "),
-          offers: { "@type": "Offer", priceCurrency: CFG.currency.code, price: String(p.price), availability: "https://schema.org/InStock" } };
-      } else title = t("notfound_title") + " | " + store;
-    } else if (p0 === "info") title = t("footer_help") + " | " + store;
-    else title = t("notfound_title") + " | " + store;
-    document.title = title;
-    setMeta("name", "description", desc);
-    setMeta("property", "og:title", title);
-    setMeta("property", "og:description", desc);
-    setMeta("property", "og:type", p0 === "product" ? "product" : "website");
+    if (!ROUTES) return;
+    var base = siteBase();
+    var abs = function (rel) {
+      if (/^(https?:|data:)/.test(rel)) return rel;
+      return MODE === "path" ? base + rel : "";
+    };
+    var seo = ROUTES.seoFor({ path: route.path, query: route.query }, lang, abs);
+    document.title = seo.title;
+    setMeta("name", "description", seo.description);
+    setMeta("name", "robots", seo.robots);
+    setMeta("property", "og:title", seo.title);
+    setMeta("property", "og:description", seo.description);
+    setMeta("property", "og:type", seo.ogType);
     setMeta("property", "og:locale", lang === "ar" ? "ar_EG" : "en_US");
-    if (p0 === "product" && byId(route.path[1])) img = photoSet(byId(route.path[1]), byId(route.path[1]).colors[0]).main || img;
-    try { setMeta("property", "og:image", new URL(img, location.href).href); } catch (e) { /* ignore */ }
-    var s = document.getElementById("ld-product");
-    if (ld) {
-      if (!s) { s = document.createElement("script"); s.type = "application/ld+json"; s.id = "ld-product"; document.head.appendChild(s); }
-      s.textContent = JSON.stringify(ld);
-    } else if (s) s.remove();
+    setMeta("property", "og:locale:alternate", lang === "ar" ? "en_US" : "ar_EG");
+    setMeta("name", "twitter:title", seo.title);
+    setMeta("name", "twitter:description", seo.description);
+    var linkable = MODE === "path";
+    setMeta("property", "og:url", linkable ? seo.canonical : "");
+    setMeta("property", "og:image", linkable ? seo.image : "");
+    setMeta("name", "twitter:image", linkable ? seo.image : "");
+    setLink("canonical", linkable ? seo.canonical : "");
+    setLink("alternate", linkable && seo.alternates ? seo.alternates.en : "", "en");
+    setLink("alternate", linkable && seo.alternates ? seo.alternates.ar : "", "ar");
+    setLink("alternate", linkable && seo.alternates ? seo.alternates.en : "", "x-default");
+    Array.prototype.forEach.call(document.querySelectorAll('script[data-seo]'), function (n) { n.remove(); });
+    if (linkable) seo.jsonld.forEach(function (d) {
+      var sc = document.createElement("script"); sc.type = "application/ld+json"; sc.setAttribute("data-seo", ""); sc.textContent = JSON.stringify(d);
+      document.head.appendChild(sc);
+    });
   }
 
   /* -------------------------------------------------------------------- app */
@@ -2763,9 +3289,11 @@ window.TITO_I18N = {
   }
 
   function App() {
-    var l = useState(initialLang), lang = l[0];
+    var l = useState(initialLang);
     var c = useReducer(cartReducer, undefined, loadCart), cart = c[0], dispatch = c[1];
     var route = useRoute();
+    var lang = MODE === "path" ? (route.lang || "en") : l[0];
+    CUR_LANG = lang;
     var u = useState({ menu: false, search: false, cart: false, quick: null, toast: null }), ui = u[0], setUi = u[1];
     var toastTimer = useRef(null);
     var mainRef = useRef(null);
@@ -2793,7 +3321,12 @@ window.TITO_I18N = {
       return {
         lang: lang, cart: cart, route: route, ui: ui, dispatch: dispatch,
         t: function (k, v) { return tr(lang, k, v); },
-        toggleLang: function () { l[1](lang === "en" ? "ar" : "en"); },
+        toggleLang: function () {
+          var other = lang === "en" ? "ar" : "en";
+          store.set(LANG_KEY, other);
+          if (MODE === "path") go(BASE_PATH + ROUTES.pathFor({ path: route.path[0] === "404" ? [] : route.path, query: route.query }, other));
+          else l[1](other);
+        },
         open: function (name, data) {
           setUi(function (s) {
             var n = Object.assign({}, s, { menu: false, search: false, cart: false, quick: null });
@@ -2818,6 +3351,7 @@ window.TITO_I18N = {
       var prod = byId(route.path[1]);
       page = prod ? html`<${Product} key=${prod.id} p=${prod} />` : html`<${NotFound} />`;
     } else if (p0 === "info") page = html`<${Info} />`;
+    else if (p0 === "about") page = html`<${About} />`;
     else page = html`<${NotFound} />`;
 
     var quickP = ui.quick && byId(ui.quick.id);
@@ -2847,7 +3381,7 @@ window.TITO_I18N = {
       return html`<div className="error-box">
         <h1 className="page-title">${ar ? "حصلت مشكلة" : "Something went wrong"}</h1>
         <p className="muted" style=${{ margin: "12px 0 20px" }}>${ar ? "اعمل تحديث للصفحة. لو المشكلة فضلت، كلّمنا على واتساب." : "Refresh the page. If it keeps happening, message us on WhatsApp."}</p>
-        <a className="btn" href="#/" onClick=${function () { setTimeout(function () { location.reload(); }, 0); }}>${ar ? "تحديث" : "Reload"}</a>
+        <a className="btn" href=${hashFor("")} onClick=${function () { setTimeout(function () { location.reload(); }, 0); }}>${ar ? "تحديث" : "Reload"}</a>
       </div>`;
     }
   }
