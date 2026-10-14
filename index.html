@@ -680,6 +680,8 @@ html[lang="ar"] .buy h1 { line-height: 1.3; font-weight: 700; }
 @keyframes lineIn { to { transform: translateX(-50%) scaleX(1); } }
 @keyframes introOut { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
 .intro.done { display: none; }
+/* until the intro is on screen, show a plain charcoal screen (no flash of text or page) */
+html.intro-pending body::after { content: ""; position: fixed; inset: 0; z-index: 299; background: var(--char); }
 
 /* ---------- misc ---------- */
 .reveal { animation: rise .7s var(--ease) both; }
@@ -913,10 +915,11 @@ html[lang="ar"] .buy h1 { line-height: 1.3; font-weight: 700; }
 .about-cta { padding-block: 24px 80px; display: grid; gap: 20px; justify-items: start; }
 
 </style>
+  <script>try{if(!sessionStorage.getItem("tito-intro-seen")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("intro-pending");setTimeout(function(){document.documentElement.classList.remove("intro-pending")},4000)}}catch(e){}</script>
 </head>
 <body>
   <div id="root">
-    <div style="min-height:100vh;display:grid;place-items:center;background:#2a292c;color:#f1efea;font:600 14px/1 Arial,sans-serif;letter-spacing:.3em">TITO STORE</div>
+    
   </div>
   <noscript>
     <p style="padding:24px;font-family:Arial,sans-serif">Tito Store needs JavaScript to show the shop. You can still order on WhatsApp: <a href="https://wa.me/201063793718">+20 106 379 3718</a></p>
@@ -2203,6 +2206,7 @@ window.TITO_I18N = {
     var seen = store.get(INTRO_KEY, window.sessionStorage);
     var st = useState(!reduce && !seen);
     var show = st[0], setShow = st[1];
+    useLayoutEffect(function () { document.documentElement.classList.remove("intro-pending"); }, []);
     useEffect(function () {
       store.set(INTRO_KEY, "1", window.sessionStorage);
       if (!show) return;
