@@ -3,6 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <style>html.ti-pre,html.ti-pre body{background:#2a292c!important}</style>
+<script>try{if(!sessionStorage.getItem("tito-intro-seen")&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.className+=" ti-pre"}catch(e){}</script>
+
   <title>Tito Store — Your Style. Your Rules.</title>
   <meta name="description" content="Tito Store — premium everyday streetwear in Egypt. Oversized hoodies, polo sweatshirts and wide-leg sweatpants. Order on WhatsApp.">
   <meta name="theme-color" content="#2a292c">
@@ -16,7 +19,8 @@
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300..800&family=Archivo:wdth,wght@62..125,300..900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300..800&family=Archivo:wdth,wght@62..125,300..900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" data-fonts onload="this.onload=null;this.rel='stylesheet';window.__titoFontsCss=1">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300..800&family=Archivo:wdth,wght@62..125,300..900&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"></noscript>
   <style>
 /* ==========================================================================
    TITO STORE — STYLES
@@ -653,36 +657,6 @@ html[lang="ar"] .buy h1 { line-height: 1.3; font-weight: 700; }
 .info p { color: var(--muted); max-width: 62ch; }
 .info .phone { direction: ltr; unicode-bidi: isolate; font-weight: 600; color: var(--ink); user-select: all; }
 
-/* ---------- intro ---------- */
-.intro {
-  position: fixed; inset: 0; z-index: 300; background: var(--char); display: grid; place-items: center; overflow: hidden;
-  animation: introOut .55s var(--ease) forwards 1.25s; cursor: pointer;
-}
-.intro::before {
-  content: ""; position: absolute; inset: -20%;
-  background: linear-gradient(105deg, transparent 38%, rgba(241, 239, 234, .10) 48%, rgba(200, 161, 155, .14) 50%, transparent 60%);
-  animation: sweep 1.3s var(--ease) forwards .15s; transform: translateX(-70%);
-}
-.intro::after {
-  content: ""; position: absolute; inset: 0; opacity: .05; pointer-events: none;
-  background-image: repeating-linear-gradient(90deg, #fff 0 1px, transparent 1px 4px);
-}
-.intro-word { position: relative; display: flex; gap: .02em; direction: ltr; }
-.intro-word span {
-  display: inline-block; font-family: "Archivo", "Arial Narrow", Arial, sans-serif; font-weight: 800;
-  font-variation-settings: "wdth" 125; color: var(--on-dark); font-size: clamp(2rem, 1rem + 6vw, 5.6rem); letter-spacing: .1em;
-  animation: letterIn .7s var(--ease) both;
-}
-.intro-word .gap { width: .35em; }
-.intro-line { position: absolute; bottom: calc(50% - clamp(2.4rem, 1.6rem + 4.5vw, 4.6rem)); left: 50%; width: clamp(80px, 20vw, 220px); height: 1px; background: var(--rose); transform: translateX(-50%) scaleX(0); animation: lineIn .6s var(--ease) forwards .6s; }
-@keyframes letterIn { from { opacity: 0; transform: translateY(.55em); filter: blur(6px); } }
-@keyframes sweep { to { transform: translateX(70%); } }
-@keyframes lineIn { to { transform: translateX(-50%) scaleX(1); } }
-@keyframes introOut { to { clip-path: inset(0 0 100% 0); visibility: hidden; } }
-.intro.done { display: none; }
-/* until the intro is on screen, show a plain charcoal screen (no flash of text or page) */
-html.intro-pending body::after { content: ""; position: fixed; inset: 0; z-index: 299; background: var(--char); }
-
 /* ---------- misc ---------- */
 .reveal { animation: rise .7s var(--ease) both; }
 .skeleton { background: linear-gradient(90deg, var(--mist), var(--paper), var(--mist)); background-size: 200% 100%; animation: shimmer 1.2s infinite; }
@@ -691,7 +665,6 @@ html.intro-pending body::after { content: ""; position: fixed; inset: 0; z-index
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-delay: 0ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-  .intro { display: none; }
 }
 
 /* ---------- tilt + sheen (desktop pointers) ---------- */
@@ -915,12 +888,76 @@ html.intro-pending body::after { content: ""; position: fixed; inset: 0; z-index
 .about-cta { padding-block: 24px 80px; display: grid; gap: 20px; justify-items: start; }
 
 </style>
-  <script>try{if(!sessionStorage.getItem("tito-intro-seen")&&!matchMedia("(prefers-reduced-motion: reduce)").matches){document.documentElement.classList.add("intro-pending");setTimeout(function(){document.documentElement.classList.remove("intro-pending")},4000)}}catch(e){}</script>
 </head>
 <body>
-  <div id="root">
-    
+  <!-- Intro: plays once per visit, before the page. Pure CSS/JS so it starts instantly and stays smooth on phones. -->
+<style>
+#tito-intro{display:none}
+#tito-intro.ti-run{display:grid;position:fixed;inset:0;z-index:400;place-items:center;background:#2a292c;overflow:hidden;cursor:pointer;
+  will-change:transform;transform:translate3d(0,0,0);transition:transform .8s cubic-bezier(.76,0,.24,1)}
+#tito-intro .ti-sweep{position:absolute;top:-20%;bottom:-20%;left:0;width:55%;pointer-events:none;
+  background:linear-gradient(100deg,transparent 0%,rgba(241,239,234,.04) 45%,rgba(200,161,155,.06) 50%,transparent 62%);
+  transform:translate3d(-120%,0,0) skewX(-12deg);animation:ti-sweep 1.6s cubic-bezier(.4,0,.2,1) .15s forwards;will-change:transform}
+#tito-intro .ti-inner{position:relative;width:min(80vw,600px);display:grid;justify-items:center;gap:clamp(14px,3vw,22px);
+  transition:transform .55s cubic-bezier(.5,0,.75,0),opacity .45s ease}
+#tito-intro .ti-word{display:flex;width:100%;direction:ltr}
+#tito-intro .ti-c{display:block;overflow:hidden;aspect-ratio:auto;flex:none}
+#tito-intro .ti-c svg{display:block;width:100%;height:auto;fill:#f1efea;transform:translate3d(0,108%,0);
+  animation:ti-up .8s cubic-bezier(.2,.8,.2,1) forwards;animation-delay:calc(.12s + var(--i) * .055s);will-change:transform}
+#tito-intro .ti-line{width:clamp(56px,16%,110px);height:2px;background:#c8a19b;border-radius:2px;transform:scaleX(0);transform-origin:50% 50%;
+  animation:ti-line .6s cubic-bezier(.2,.8,.2,1) .8s forwards;will-change:transform}
+#tito-intro.ti-out{transform:translate3d(0,-100%,0)}
+#tito-intro.ti-out .ti-inner{transform:translate3d(0,-36px,0);opacity:0}
+html.ti-lock,html.ti-lock body{overflow:hidden}
+html.ti-lock .hero-title span,html.ti-lock .hero-sub,html.ti-lock .hero-ctas{animation-play-state:paused}
+@keyframes ti-up{to{transform:translate3d(0,0,0)}}
+@keyframes ti-line{to{transform:scaleX(1)}}
+@keyframes ti-sweep{to{transform:translate3d(260%,0,0) skewX(-12deg)}}
+@media (prefers-reduced-motion:reduce){#tito-intro{display:none!important}}
+</style>
+<div id="tito-intro" aria-hidden="true">
+  <div class="ti-sweep"></div>
+  <div class="ti-inner">
+    <div class="ti-word" role="img" aria-label="Tito Store"><span class="ti-c" style="--i:0;width:9.7707%;margin-inline-start:0.0000%"><svg viewBox="0 -24 848 734" aria-hidden="true" focusable="false"><path d="M322.3046875 686.0V162.3466796875H24.36962890625V-1.54345703125H823.8681640625V162.3466796875H525.93310546875V686.0Z"/></svg></span><span class="ti-c" style="--i:1;width:4.2977%;margin-inline-start:1.1522%"><svg viewBox="948 -24 373 734" aria-hidden="true" focusable="false"><path d="M1032.50048828125 686.0V-1.54345703125H1236.12890625V686.0Z"/></svg></span><span class="ti-c" style="--i:2;width:9.7707%;margin-inline-start:1.1522%"><svg viewBox="1421 -24 848 734" aria-hidden="true" focusable="false"><path d="M1743.3046875 686.0V162.3466796875H1445.36962890625V-1.54345703125H2244.8681640625V162.3466796875H1946.93310546875V686.0Z"/></svg></span><span class="ti-c" style="--i:3;width:11.6719%;margin-inline-start:1.1522%"><svg viewBox="2369 -24 1013 734" aria-hidden="true" focusable="false"><path d="M2874.881097593076 698.0Q2736.5778894141677 698.0 2635.169559941459 655.684814453125Q2533.76123046875 613.36962890625 2478.902587890625 533.86962890625Q2424.0439453125 454.36962890625 2424.0439453125 342.47302904564316Q2424.0439453125 229.63037109375 2478.902587890625 150.0869140625Q2533.76123046875 70.54345703125 2635.169559941459 28.5Q2736.5778894141677 -13.54345703125 2874.881097593076 -13.54345703125Q3015.0 -13.54345703125 3115.902099609375 28.5Q3216.80419921875 70.54345703125 3271.662841796875 150.0869140625Q3326.521484375 229.63037109375 3326.521484375 342.47302904564316Q3326.521484375 454.36962890625 3271.662841796875 533.86962890625Q3216.80419921875 613.36962890625 3115.902099609375 655.684814453125Q3015.0 698 2874.881097593076 698.0ZM2875.28271484375 547.087890625Q2929.130859375 547.087890625 2973.5224609375 533.903076171875Q3017.9140625 520.71826171875 3050.164306640625 495.620361328125Q3082.41455078125 470.5224609375 3099.838623046875 434.33024088541663Q3117.2626953125 398.1380208333333 3117.2626953125 353.0V329.45654296875Q3117.2626953125 284.52171848244865 3099.838623046875 248.72790025684932Q3082.41455078125 212.93408203125 3050.164306640625 188.10791015625Q3017.9140625 163.28173828125 2973.5224609375 150.3251953125Q2929.130859375 137.36865234375 2875.28271484375 137.36865234375Q2821.4345703125 137.36865234375 2777.04296875 150.3251953125Q2732.6513671875 163.28173828125 2700.401123046875 188.10791015625Q2668.15087890625 212.93408203125 2650.955078125 248.72790025684932Q2633.75927734375 284.52171848244865 2633.75927734375 329.45654296875V353.0Q2633.75927734375 398.1380208333333 2650.955078125 434.33024088541663Q2668.15087890625 470.5224609375 2700.401123046875 495.620361328125Q2732.6513671875 520.71826171875 2777.04296875 533.903076171875Q2821.4345703125 547.087890625 2875.28271484375 547.087890625Z"/></svg></span><span class="ti-c" style="--i:4;width:9.9896%;margin-inline-start:4.3046%"><svg viewBox="3756 -24 867 734" aria-hidden="true" focusable="false"><path d="M4207.164453125 698.0Q4123.18642578125 698.0 4050.2953125000004 687.95654296875Q3977.40419921875 677.9130859375 3922.6 652.86962890625Q3867.79580078125 627.826171875 3836.850244140625 583.010986328125Q3805.9046875 538.19580078125 3805.9046875 469.19580078125Q3805.9046875 467.19580078125 3805.9046875 463.924072265625Q3805.9046875 460.65234375 3806.9046875 457.5654296875H4006.35927734375Q4005.35927734375 461.5654296875 4005.131005859375 465.978515625Q4004.902734375 470.3916015625 4004.902734375 475.2177734375Q4004.902734375 505.67431640625 4028.09853515625 523.272216796875Q4051.2943359375 540.8701171875 4093.6859375000004 547.968017578125Q4136.0775390625 555.06591796875 4192.2083984375 555.06591796875Q4215.773828125 555.06591796875 4240.38271484375 553.65283203125Q4264.9916015625 552.23974609375 4287.915673828125 548.598388671875Q4310.83974609375 544.95703125 4329.07900390625 538.130859375Q4347.31826171875 531.3046875 4358.187890625 520.52197265625Q4369.05751953125 509.7392578125 4369.05751953125 494.45654296875Q4369.05751953125 472.80419921875 4346.1009765625 460.293212890625Q4323.14443359375 447.7822265625 4283.959619140625 440.227783203125Q4244.7748046875 432.67333984375 4196.133447265625 426.76025390625Q4147.49208984375 420.84716796875 4095.3507324218754 412.618896484375Q4043.209375 404.390625 3994.568017578125 389.890625Q3945.92666015625 375.390625 3906.741845703125 351.3037109375Q3867.55703125 327.216796875 3844.60048828125 289.358154296875Q3821.6439453125 251.49951171875 3821.6439453125 196.869140625Q3821.6439453125 142.34765625 3849.263330078125 102.63037109375Q3876.88271484375 62.9130859375 3926.773828125 37.141357421875Q3976.66494140625 11.36962890625 4044.6104980468754 -1.0869140625Q4112.5560546875 -13.54345703125 4192.66494140625 -13.54345703125Q4274.31728515625 -13.54345703125 4340.762841796875 -0.902099609375Q4407.2083984375 11.7392578125 4454.914697265625 37.19580078125Q4502.62099609375 62.65234375 4528.283837890625 101.326171875Q4553.9466796875 140.0 4553.9466796875 192.06494140625V205.89111328125H4356.49208984375V197.7822265625Q4356.49208984375 176.869140625 4338.4701171875 160.684326171875Q4320.44814453125 144.49951171875 4285.96962890625 134.771240234375Q4251.49111328125 125.04296875 4202.2083984375 125.04296875Q4143.2513671875 125.04296875 4105.31630859375 132.41259765625Q4067.38125 139.7822265625 4049.370263671875 152.56494140625Q4031.35927734375 165.34765625 4031.35927734375 180.54345703125Q4031.35927734375 200.826171875 4054.3158203125 212.65234375Q4077.27236328125 224.478515625 4116.457177734375 231.34814453125Q4155.6419921875 238.2177734375 4204.283349609375 244.130859375Q4252.92470703125 250.0439453125 4305.066064453125 258.228759765625Q4357.207421875 266.41357421875 4405.848779296875 280.141845703125Q4454.49013671875 293.8701171875 4493.674951171875 317.641845703125Q4532.859765625 341.41357421875 4555.81630859375 377.728759765625Q4578.7728515625 414.0439453125 4578.7728515625 467.130859375Q4578.7728515625 549.84814453125 4530.870751953125 600.793701171875Q4482.96865234375 651.7392578125 4399.066552734375 674.86962890625Q4315.164453125 698.0 4207.164453125 698.0Z"/></svg></span><span class="ti-c" style="--i:5;width:9.7707%;margin-inline-start:1.1522%"><svg viewBox="4723 -24 848 734" aria-hidden="true" focusable="false"><path d="M5044.9046875 686.0V162.3466796875H4746.96962890625V-1.54345703125H5546.4681640625V162.3466796875H5248.53310546875V686.0Z"/></svg></span><span class="ti-c" style="--i:6;width:11.6719%;margin-inline-start:1.1522%"><svg viewBox="5671 -24 1013 734" aria-hidden="true" focusable="false"><path d="M6176.481097593077 698.0Q6038.177889414168 698.0 5936.769559941459 655.684814453125Q5835.36123046875 613.36962890625 5780.502587890625 533.86962890625Q5725.6439453125 454.36962890625 5725.6439453125 342.47302904564316Q5725.6439453125 229.63037109375 5780.502587890625 150.0869140625Q5835.36123046875 70.54345703125 5936.769559941459 28.5Q6038.177889414168 -13.54345703125 6176.481097593077 -13.54345703125Q6316.6 -13.54345703125 6417.502099609375 28.5Q6518.40419921875 70.54345703125 6573.262841796875 150.0869140625Q6628.121484375 229.63037109375 6628.121484375 342.47302904564316Q6628.121484375 454.36962890625 6573.262841796875 533.86962890625Q6518.40419921875 613.36962890625 6417.502099609375 655.684814453125Q6316.6 698 6176.481097593077 698.0ZM6176.88271484375 547.087890625Q6230.730859375 547.087890625 6275.1224609375 533.903076171875Q6319.5140625 520.71826171875 6351.764306640625 495.620361328125Q6384.01455078125 470.5224609375 6401.438623046875 434.33024088541663Q6418.8626953125 398.1380208333333 6418.8626953125 353.0V329.45654296875Q6418.8626953125 284.52171848244865 6401.438623046875 248.72790025684932Q6384.01455078125 212.93408203125 6351.764306640625 188.10791015625Q6319.5140625 163.28173828125 6275.1224609375 150.3251953125Q6230.730859375 137.36865234375 6176.88271484375 137.36865234375Q6123.0345703125 137.36865234375 6078.64296875 150.3251953125Q6034.2513671875 163.28173828125 6002.001123046875 188.10791015625Q5969.75087890625 212.93408203125 5952.555078125 248.72790025684932Q5935.35927734375 284.52171848244865 5935.35927734375 329.45654296875V353.0Q5935.35927734375 398.1380208333333 5952.555078125 434.33024088541663Q5969.75087890625 470.5224609375 6002.001123046875 495.620361328125Q6034.2513671875 520.71826171875 6078.64296875 533.903076171875Q6123.0345703125 547.087890625 6176.88271484375 547.087890625Z"/></svg></span><span class="ti-c" style="--i:7;width:10.7386%;margin-inline-start:1.1522%"><svg viewBox="6784 -24 932 734" aria-hidden="true" focusable="false"><path d="M6868.10048828125 686.0V-1.54345703125H7440.36025390625Q7515.53408203125 -1.54345703125 7564.7513671875 29.315185546875Q7613.96865234375 60.173828125 7638.5990234375 110.575927734375Q7663.22939453125 160.97802734375 7663.22939453125 220.521484375Q7663.22939453125 285.869140625 7632.2728515625 339.369140625Q7601.31630859375 392.869140625 7539.1205078125 423.9560546875L7679.6859375 686.0H7449.992578125L7335.9486328125 457.3037109375H7071.72890625V686.0ZM7071.72890625 306.84814453125H7373.9046875Q7410.57900390625 306.84814453125 7432.546533203125 284.78271484375Q7454.5140625 262.71728515625 7454.5140625 226.23876953125Q7454.5140625 201.58642578125 7444.6009765625 184.34716796875Q7434.687890625 167.10791015625 7416.763818359375 158.23828125Q7398.83974609375 149.36865234375 7373.9046875 149.36865234375H7071.72890625Z"/></svg></span><span class="ti-c" style="--i:8;width:9.9435%;margin-inline-start:1.1522%"><svg viewBox="7816 -24 863 734" aria-hidden="true" focusable="false"><path d="M7900.10048828125 686.0V-1.54345703125H8616.83876953125V149.36865234375H8104.27236328125V264.84814453125H8553.0345703125V410.869140625H8104.27236328125V535.087890625H8624.83876953125V686.0Z"/></svg></span></div>
+    <div class="ti-line"></div>
   </div>
+</div>
+<script>
+(function () {
+  var el = document.getElementById("tito-intro"), d = document.documentElement;
+  if (!el) return;
+  var show = false;
+  try { show = !sessionStorage.getItem("tito-intro-seen") && !matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) { show = false; }
+  if (!show) { el.parentNode.removeChild(el); d.classList.remove("ti-pre"); return; }
+  try { sessionStorage.setItem("tito-intro-seen", "1"); } catch (e) {}
+  d.classList.add("ti-lock");
+  el.classList.add("ti-run");
+  var t0 = Date.now(), done = false, ready = !!window.__titoReady;
+  function fontsOk() {
+    var lazyCss = document.querySelector("link[data-fonts]");
+    if (lazyCss && !window.__titoFontsCss && lazyCss.rel !== "stylesheet") return false;
+    return !document.fonts || document.fonts.status === "loaded";
+  }
+  function exit() {
+    if (done) return; done = true;
+    el.classList.add("ti-out");
+    d.classList.remove("ti-pre");
+    setTimeout(function () { d.classList.remove("ti-lock"); }, 250);
+    setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 950);
+  }
+  // lift once the letters have landed AND the page underneath is ready (never longer than ~3.4s)
+  function check() {
+    var t = Date.now() - t0;
+    if (t < 1450) return;
+    if ((ready && fontsOk()) || t > 3400) exit();
+  }
+  window.addEventListener("tito:ready", function () { ready = true; check(); });
+  var iv = setInterval(function () { check(); if (done) clearInterval(iv); }, 80);
+  el.addEventListener("click", exit);
+})();
+</script>
+
+  <div id="root"></div>
   <noscript>
     <p style="padding:24px;font-family:Arial,sans-serif">Tito Store needs JavaScript to show the shop. You can still order on WhatsApp: <a href="https://wa.me/201063793718">+20 106 379 3718</a></p>
   </noscript>
@@ -2201,31 +2238,7 @@ window.TITO_I18N = {
   }
 
   /* ------------------------------------------------------------------ intro */
-  function Intro() {
-    var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var seen = store.get(INTRO_KEY, window.sessionStorage);
-    var st = useState(!reduce && !seen);
-    var show = st[0], setShow = st[1];
-    useLayoutEffect(function () { document.documentElement.classList.remove("intro-pending"); }, []);
-    useEffect(function () {
-      store.set(INTRO_KEY, "1", window.sessionStorage);
-      if (!show) return;
-      var t = setTimeout(function () { setShow(false); }, 2000); // hard stop
-      return function () { clearTimeout(t); };
-    }, []);
-    if (!show) return null;
-    var word = "TITO STORE".split("");
-    return html`<div className="intro" aria-hidden="true" onClick=${function () { setShow(false); }}
-      onAnimationEnd=${function (e) { if (e.animationName === "introOut") setShow(false); }}>
-      <div className="intro-word">
-        ${word.map(function (ch, i) {
-          return ch === " " ? html`<span key=${i} className="gap"></span>`
-            : html`<span key=${i} style=${{ animationDelay: (0.05 + i * 0.045) + "s" }}>${ch}</span>`;
-        })}
-      </div>
-      <div className="intro-line"></div>
-    </div>`;
-  }
+
 
   /* ----------------------------------------------------------------- header */
   function Header() {
@@ -3303,6 +3316,11 @@ window.TITO_I18N = {
     var mainRef = useRef(null);
 
     useEffect(function () { store.set(CART_KEY, JSON.stringify(cart)); }, [cart]);
+    // tell the intro the page is drawn, so it can lift
+    useEffect(function () {
+      window.__titoReady = true;
+      try { window.dispatchEvent(new Event("tito:ready")); } catch (e) { /* old browsers */ }
+    }, []);
     useLayoutEffect(function () {
       var root = document.documentElement;
       root.lang = lang; root.dir = I18N[lang].dir;
@@ -3361,7 +3379,6 @@ window.TITO_I18N = {
     var quickP = ui.quick && byId(ui.quick.id);
     return html`<${Ctx.Provider} value=${value}>
       <a className="skip" href="#main" onClick=${function (e) { e.preventDefault(); if (mainRef.current) mainRef.current.focus(); }}>${tr(lang, "skip")}</a>
-      <${Intro} />
       <${Header} />
       <main id="main" tabIndex="-1" ref=${mainRef} style=${{ outline: "none" }}>${page}</main>
       <${Footer} />
