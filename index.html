@@ -894,7 +894,7 @@ html[lang="ar"] .buy h1 { line-height: 1.3; font-weight: 700; }
 <style>
 #tito-intro{display:none}
 #tito-intro.ti-run{display:block;position:fixed;inset:0;z-index:400;overflow:hidden;cursor:pointer;contain:strict}
-#tito-intro .ti-move,#tito-intro .ti-hold{position:absolute;inset:0;will-change:transform;transform:translate3d(0,0,0);transition:transform .58s cubic-bezier(.2,.7,.1,1)}
+#tito-intro .ti-move,#tito-intro .ti-hold{position:absolute;inset:0;will-change:transform;transform:translate3d(0,0,0);transition:transform .7s cubic-bezier(.2,.7,.1,1)}
 #tito-intro .ti-move{background:#2a292c;overflow:hidden}
 #tito-intro .ti-hold{display:grid;place-items:center}
 #tito-intro.ti-out .ti-move{transform:translate3d(0,-100%,0)}
@@ -902,16 +902,16 @@ html[lang="ar"] .buy h1 { line-height: 1.3; font-weight: 700; }
 #tito-intro .ti-grain{position:absolute;inset:0;opacity:.05;pointer-events:none;background-image:repeating-linear-gradient(90deg,#fff 0 1px,transparent 1px 4px)}
 #tito-intro .ti-sweep{position:absolute;inset:-20%;pointer-events:none;will-change:transform;transform:translate3d(-70%,0,0);
   background:linear-gradient(105deg,transparent 38%,rgba(241,239,234,.10) 48%,rgba(200,161,155,.14) 50%,transparent 60%);
-  animation:ti-sweep 1.9s cubic-bezier(.2,.7,.1,1) .15s infinite}
+  animation:ti-sweep 2.2s cubic-bezier(.2,.7,.1,1) .15s infinite}
 #tito-intro .ti-inner{position:relative;width:min(86vw,780px);display:grid;justify-items:center}
 #tito-intro .ti-word{display:flex;width:100%;direction:ltr}
 #tito-intro .ti-c{position:relative;display:block;flex:none;opacity:0;transform:translate3d(0,70%,0);will-change:transform,opacity;
-  animation:ti-in .7s cubic-bezier(.2,.7,.1,1) forwards;animation-delay:calc(.05s + var(--i) * .045s)}
+  animation:ti-in .85s cubic-bezier(.2,.7,.1,1) forwards;animation-delay:calc(.08s + var(--i) * .06s)}
 #tito-intro .ti-c svg{display:block;width:100%;height:auto;fill:#f1efea}
-#tito-intro .ti-s{opacity:0;animation:ti-fade .7s cubic-bezier(.2,.7,.1,1) forwards;animation-delay:calc(.05s + var(--i) * .045s)}
-#tito-intro .ti-b{position:absolute;inset:0;filter:blur(clamp(2.5px,.7vw,6px));animation:ti-fadeout .7s cubic-bezier(.2,.7,.1,1) forwards;animation-delay:calc(.05s + var(--i) * .045s)}
+#tito-intro .ti-s{opacity:0;animation:ti-fade .85s cubic-bezier(.2,.7,.1,1) forwards;animation-delay:calc(.08s + var(--i) * .06s)}
+#tito-intro .ti-b{position:absolute;inset:0;filter:blur(clamp(2.5px,.7vw,6px));animation:ti-fadeout .85s cubic-bezier(.2,.7,.1,1) forwards;animation-delay:calc(.08s + var(--i) * .06s)}
 #tito-intro .ti-line{margin-top:clamp(14px,2.6vw,26px);width:clamp(80px,20vw,220px);height:1px;background:#c8a19b;transform:scaleX(0);will-change:transform;
-  animation:ti-line .6s cubic-bezier(.2,.7,.1,1) .6s forwards}
+  animation:ti-line .75s cubic-bezier(.2,.7,.1,1) .85s forwards}
 html.ti-lock,html.ti-lock body{overflow:hidden}
 html.ti-lock .hero-title span,html.ti-lock .hero-sub,html.ti-lock .hero-ctas{animation-play-state:paused}
 @keyframes ti-in{to{opacity:1;transform:translate3d(0,0,0)}}
@@ -954,13 +954,13 @@ html.ti-lock .hero-title span,html.ti-lock .hero-sub,html.ti-lock .hero-ctas{ani
     el.classList.add("ti-out");
     d.classList.remove("ti-pre");
     setTimeout(function () { d.classList.remove("ti-lock"); }, 120);
-    setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 700);
+    setTimeout(function () { if (el.parentNode) el.parentNode.removeChild(el); }, 820);
   }
   // wipe away once the letters have landed and the page underneath is ready (never longer than 4s)
   function check() {
     var t = Date.now() - t0;
-    if (t < 1250) return;
-    if ((ready && fontsOk()) || t > 4000) exit();
+    if (t < 1900) return;
+    if ((ready && fontsOk()) || t > 4500) exit();
   }
   window.addEventListener("tito:ready", function () { ready = true; check(); });
   var iv = setInterval(function () { check(); if (done) clearInterval(iv); }, 60);
